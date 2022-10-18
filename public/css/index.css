@@ -1,0 +1,167 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(/font_asset/Quicksand-VariableFont_wght.ttf)
+}
+
+body {
+    font-family: Quicksand;
+}
+
+button {
+    font-family: Quicksand;
+}
+
+#start_logo {
+    position: relative;
+    width: auto;
+    height: 200px;
+}
+
+#subtitle {
+    font-size: 50px;
+}
+
+#logo_header {
+    position: fixed;
+    left: 50px;
+    height: 70px;
+    width: auto;
+}
+
+.intro {
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    transition: 2s;
+}
+
+.MaiBoutique-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.MaiBoutique {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+
+.MaiBoutique.active {
+    right: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.MaiBoutique.fade {
+    right: 155px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+.Welcome {
+    font-size: 60px;
+}
+
+
+
+#logo_on_banner {
+    bottom: -2px;
+    background-color: white;
+    right: 355px;
+    width: auto;
+    height: 128px;
+    position: relative;
+    transition: ease-in-out 1.5s;
+}
+
+.banner {
+    position: relative;
+    text-align: center;
+    top: 300px;
+}
+
+#subtitle_welcome {
+    position: relative;
+    top: -50px;
+    font-size: 20px;
+    opacity: 0;
+    transition: 1s;
+}
+
+footer {
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    font-size: 20px;
+}
+
+#date {
+    font-weight: bold;
+    position: relative;
+    top: 45px;
+    text-align: right;
+    right: 50px;
+}
+
+#sign-in-sign-out {
+    position: relative;
+    right: 100px;
+    opacity: 0;
+    transition: 2s;
+}
+
+.sign-button {
+    border-color: transparent;
+    background-color: white;
+    border-radius: 20px;
+    height: 60px;
+    width: 150px;
+    position: relative;
+    font-size: 32px;
+    font-weight: bold;
+    top: 32px;
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.sign-button:hover {
+    box-shadow: 5px 5px #888888;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#signIn {
+    right: 40px;
+}
+
+#register {
+    left: 40px;
+}
+
+.transitionPage {
+    position: fixed;
+    left: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: ease-in-out 1s;
+}
