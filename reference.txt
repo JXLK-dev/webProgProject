@@ -1,0 +1,9 @@
+https://fonts.google.com/specimen/Quicksand - quicksand fonts
+https://www.youtube.com/watch?v=2ak37WrbSDg&t=1s - starting animation
+https://www.youtube.com/watch?v=n6hF0luVJ7c - route view
+https://stackoverflow.com/questions/54456301/button-not-responding-laravel - click to change view
+https://stackoverflow.com/questions/47136821/add-delay-for-href-laravel - for delaying href
+https://www.positronx.io/laravel-custom-authentication-login-and-registration-tutorial/ - custom authentication
+https://stackoverflow.com/questions/26732821/displaying-the-error-messages-in-laravel-after-being-redirected-from-controller - data validation error messages
+https://www.pakainfo.com/redirect-page-after-delay-using-laravel-example/ data validation after redirection
+https://medium.com/@antoine.lame/laravel-asynchronous-and-concurrent-http-requests-9c8e3e6d36bd
