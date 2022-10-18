@@ -23,8 +23,12 @@
             <div class="signin-template">
                 <form id="form" action="/signin" method="POST">
                     @csrf
+                    @if ($errors->has('unauthorized'))
+                        <h3>{{ $errors->first('unauthorized') }}</h3>
+                    @endif
                     <label for="email" class="inputLabel">Email</label>
-                    <input type="text" class="input" name="email" id="email">
+                    <input type="text" class="input" name="email" id="email"
+                        value={{ Cookie::get('emailCookie') !== null ? Cookie::get('emailCookie') : old('email') }}>
                     @if ($errors->has('email'))
                         <h3>{{ $errors->first('email') }}</h3>
                     @endif
@@ -35,7 +39,8 @@
                     @endif
                     <div id="back">
                         <label for="checkbox" class="tickbox">Remember me</label>
-                        <input type="checkbox" name="email">
+                        <input type="checkbox" name="remember" id="remember"
+                            checked={{ Cookie::get('emailCookie') !== null }}>
                     </div>
                     <div id="back">
                         <button type="submit" class="sign-button" id="login">Login</button>

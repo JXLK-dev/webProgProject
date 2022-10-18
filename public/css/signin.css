@@ -132,11 +132,12 @@ body {
 }
 
 .input {
+    margin-left: 30px;
     border: none;
     border-bottom: 2px solid black;
     display: block;
     margin-top: 10px;
-    width: 90%;
+    width: 85%;
     font-size: 25px;
     margin-bottom: 3vh;
 }
@@ -173,12 +174,12 @@ input[type="password"]:focus {
 }
 
 .inputLabel {
+    margin-left: 30px;
     font-size: 20px;
     font-weight: 600;
 }
 
 #form {
-    margin-left: 30px;
     top: 0;
     margin-top: 7vh;
 }
@@ -219,8 +220,8 @@ input[type="password"]:focus {
 }
 
 #back {
-    width: 100%;
     text-align: center;
+    width: 100%;
 }
 
 @keyframes error-message {
@@ -240,6 +241,7 @@ input[type="password"]:focus {
 }
 
 h3 {
+    margin-left: 30px;
     font-size: 15px;
     margin-top: -20px;
     color: red;
