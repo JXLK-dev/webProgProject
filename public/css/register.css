@@ -15,7 +15,7 @@ body {
     color: white;
     top: 0;
     background-color: black;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -23,13 +23,12 @@ body {
     z-index: 1;
 }
 
-#signin {
+#register {
     text-align: center;
     font-size: 40px;
     width: 50%;
     position: relative;
     top: 30%;
-    left: 50%;
     text-shadow: 2px 2px grey;
     opacity: 0;
     transition: 1.5s;
@@ -37,7 +36,6 @@ body {
 
 #subtitle {
     text-shadow: 2px 2px grey;
-    left: 50%;
     width: 50%;
     position: relative;
     top: 30%;
@@ -47,7 +45,7 @@ body {
 }
 
 #container {
-    left: 50%;
+    right: 50%;
     right: 0;
     top: 60%;
     position: relative;
@@ -56,7 +54,7 @@ body {
     vertical-align: middle;
 }
 
-#register {
+#signin {
     font-family: Quicksand;
     font-size: 25px;
     background-color: transparent;
@@ -75,36 +73,35 @@ body {
     text-align: center;
 }
 
-#registerAccount {
+#checkAccount {
     text-shadow: 2px 2px grey;
     font-size: 15px;
-    width: 180px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0;
     transition: 1.5s;
 }
 
-#register:hover {
+#signin:hover {
     letter-spacing: 5px;
     text-decoration: none;
     transition: 1s;
 }
 
-.right-field {
+.left-field {
     position: relative;
     display: flex;
-    left: 50%;
     width: 50%;
     height: 100vh;
 }
 
-.signin {
+.register {
     inset: 0;
     margin: auto;
     position: relative;
     width: 50vh;
-    height: 45vh;
+    height: 72vh;
     text-align: center;
     border: 5px black solid;
     border-radius: 20px;
@@ -125,7 +122,7 @@ body {
     padding-right: 20px;
 }
 
-.signin-template {
+.register-template {
     border: 1px black;
     position: relative;
     text-align: left;
@@ -175,7 +172,7 @@ input[type="password"]:focus {
 
 .inputLabel {
     margin-left: 30px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
 }
 
@@ -193,7 +190,7 @@ input[type="password"]:focus {
     margin-right: auto;
 }
 
-.sign-button {
+.register-button {
     border: 2px solid black;
     font-family: Quicksand;
     background-color: white;
@@ -210,7 +207,7 @@ input[type="password"]:focus {
 
 }
 
-.sign-button:hover {
+.register-button:hover {
     box-shadow: 5px 5px #888888;
     text-decoration: none;
     background-color: black;
@@ -242,7 +239,7 @@ input[type="password"]:focus {
 
 h3 {
     margin-left: 30px;
-    font-size: 15px;
+    font-size: 11px;
     margin-top: -20px;
     color: red;
     animation: error-message 1.5s;

@@ -18,3 +18,4 @@ Route::get('/signin', [PagesController::class, 'signIn']);
 Route::post('/signin', [PagesController::class, 'loginCredential']);
 Route::get('/home', [PagesController::class, 'Home']);
 Route::get('/register', [PagesController::class, 'register']);
+Route::post('/register', [PagesController::class, 'registerCredential']);

@@ -70,14 +70,20 @@ class PagesController extends Controller
             'username' => 'required|max:20|min:5',
             'email' => 'required',
             'password' => 'required|max:20|min:5',
-            'phone_number' => 'required|min:10|max:30',
+            'phone_number' => 'required|min:10|max:13',
             'address' => 'required|min:5'
 
         );
         $messages = [
+            'phone_number.min' => 'phone number must be at least 10 digits',
+            'phone_number.max' => 'phone number must be less than 14 digits',
             'required' => ':attribute could not be empty',
             'min' => 'size must be more than 5',
             'max' => 'size must be less than 20'
         ];
+        $validated = Validator::make($request->all(), $rules, $messages);
+        if ($validated->fails()) {
+            return redirect()->back()->withErrors($validated)->withInput();
+        }
     }
 }
