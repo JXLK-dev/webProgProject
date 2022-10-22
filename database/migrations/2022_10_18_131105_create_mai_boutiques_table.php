@@ -15,6 +15,13 @@ class CreateMaiBoutiquesTable extends Migration
     {
         Schema::create('mai_boutiques', function (Blueprint $table) {
             $table->id();
+            $table->string('username')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('phone_number');
+            $table->string('address');
+            $table->boolean('admin');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

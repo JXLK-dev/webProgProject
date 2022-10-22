@@ -21,7 +21,7 @@
         <div class="register">
             <img id="logo" src="{{ URL::asset('asset_image/MaiBoutique_black.png') }}" alt="">
             <div class="register-template">
-                <form id="form" action="/register" method="POST">
+                <form id="form" action="/register" onsubmit="onSubmission()" method="POST">
                     @csrf
 
                     <label for="username" class="inputLabel">Username</label>
@@ -52,8 +52,7 @@
                     @endif
                     <div id="back">
                         <label for="checkbox" class="tickbox">Remember me</label>
-                        <input type="checkbox" name="remember" id="remember"
-                            checked={{ Cookie::get('emailCookie') !== null }}>
+                        <input type="checkbox" name="remember" id="remember">
                     </div>
                     <div id="back">
                         <button type="submit" class="register-button" id="login">Register</button>

@@ -27,4 +27,14 @@ button.onclick = function () {
         window.location.href = "/signin";
     }, 1100);
 }
-
+function onSubmission() {
+    // body.style.background = 'black'
+    intro.style.right = '0';
+    signin.style.opacity = '0';
+    subtitle.style.opacity = '0';
+    register.style.opacity = '0';
+    checkAccount.style.opacity = '0';
+    setTimeout(() => {
+        window.location.href = '/signin';
+    }, 1000);
+}

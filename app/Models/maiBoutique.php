@@ -10,14 +10,15 @@ use Illuminate\Notifications\Notifiable;
 
 class maiBoutique extends Authenticatable
 {
-    use HasFactory;
+
+    use HasFactory, Notifiable;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'phone number', 'address'
+        'username', 'email', 'password', 'phone_number', 'address'
     ];
 
     /**
@@ -26,7 +27,7 @@ class maiBoutique extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 
     /**
@@ -34,7 +35,7 @@ class maiBoutique extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 }
