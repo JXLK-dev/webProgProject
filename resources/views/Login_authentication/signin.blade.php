@@ -33,7 +33,8 @@
                         <h3>{{ $errors->first('email') }}</h3>
                     @endif
                     <label for="password" class="inputLabel">Password</label>
-                    <input type="password" class="input" name="password">
+                    <input type="password" class="input" name="password"
+                        value={{ Cookie::get('passwordCookie') !== null ? Cookie::get('passwordCookie') : '' }}>
                     @if ($errors->has('password'))
                         <h3>{{ $errors->first('password') }}</h3>
                     @endif

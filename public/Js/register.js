@@ -34,5 +34,4 @@ function onSubmission() {
     subtitle.style.opacity = '0';
     register.style.opacity = '0';
     checkAccount.style.opacity = '0';
-
 }

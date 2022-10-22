@@ -51,10 +51,6 @@
                         <h3>{{ $errors->first('address') }}</h3>
                     @endif
                     <div id="back">
-                        <label for="checkbox" class="tickbox">Remember me</label>
-                        <input type="checkbox" name="remember" id="remember">
-                    </div>
-                    <div id="back">
                         <button type="submit" class="register-button" id="login">Register</button>
                     </div>
                 </form>

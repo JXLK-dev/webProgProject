@@ -44,11 +44,13 @@ class PagesController extends Controller
         ];
 
         if ($request->remember) {
-            Cookie::queue('emailCookie', $request->email, 10);
+            Cookie::queue('emailCookie', $request->email, 1000);
+            Cookie::queue('passwordCookie', $request->password, 1000);
         }
 
         $validated = Validator::make($request->all(), $rules, $messages);
         if ($validated->fails()) {
+            usleep(1000 * 1000 - 100000);
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
             $cred = [
@@ -85,12 +87,16 @@ class PagesController extends Controller
         ];
         $validated = Validator::make($request->all(), $rules, $messages);
         if ($validated->fails()) {
+            usleep(1000 * 1000 - 100000);
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
             DB::insert(
-                'insert into mai_boutiques (username,email,password,phone_number,address, admin) values (?, ?, ?, ?, ?, ?)',
-                [$request->username, $request->email, bcrypt($request->password), $request->phone_number, $request->address, false]
+                'insert into mai_boutiques (username,email,password,phone_number,address) values (?, ?, ?, ?, ?)',
+                [$request->username, $request->email, bcrypt($request->password), $request->phone_number, $request->address]
             );
+            sleep(0.2);
+            return redirect('/signin');
+            // sleep(1);
         }
     }
 }
