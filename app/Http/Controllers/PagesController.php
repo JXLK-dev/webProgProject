@@ -75,6 +75,7 @@ class PagesController extends Controller
             'address' => 'required|min:5'
 
         );
+        // for email:rfc,dns requires internet to work
         $messages = [
             'phone_number.min' => 'The phone number must be at least 10 digits',
             'phone_number.max' => 'The phone number must be less than 14 digits',
@@ -86,8 +87,10 @@ class PagesController extends Controller
         if ($validated->fails()) {
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            DB::insert('insert into mai_boutiques (username,email,password,phone_number,address, admin) values (?, ?, ?, ?, ?, ?)', [$request->username, $request->email, bcrypt($request->password), $request->phone_number, $request->address, false]);
-            sleep(1);
+            DB::insert(
+                'insert into mai_boutiques (username,email,password,phone_number,address, admin) values (?, ?, ?, ?, ?, ?)',
+                [$request->username, $request->email, bcrypt($request->password), $request->phone_number, $request->address, false]
+            );
         }
     }
 }

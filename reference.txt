@@ -10,3 +10,4 @@ https://medium.com/@antoine.lame/laravel-asynchronous-and-concurrent-http-reques
 https://codingdriver.com/retain-old-value-on-validation-error-in-laravel.html - retaining data after validation
 https://stackoverflow.com/questions/58725526/validation-of-an-email-address-in-laravel data validation for email
 https://stackoverflow.com/questions/17799148/how-to-check-if-a-user-email-already-exist - unique data
+- inserting database

@@ -28,3 +28,12 @@ button.onclick = function () {
     }, 1000);
 }
 
+function onSubmission() {
+    // body.style.background = 'black'
+    intro.style.left = '0';
+    signin.style.opacity = '0';
+    subtitle.style.opacity = '0';
+    register.style.opacity = '0';
+    registerAccount.style.opacity = '0';
+
+}

@@ -34,7 +34,5 @@ function onSubmission() {
     subtitle.style.opacity = '0';
     register.style.opacity = '0';
     checkAccount.style.opacity = '0';
-    setTimeout(() => {
-        window.location.href = '/signin';
-    }, 1000);
+
 }

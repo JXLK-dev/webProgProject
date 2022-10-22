@@ -20,7 +20,7 @@ class CreateMaiBoutiquesTable extends Migration
             $table->string('password');
             $table->string('phone_number');
             $table->string('address');
-            $table->boolean('admin');
+            $table->string('role')->default('member');
             $table->rememberToken();
             $table->timestamps();
         });

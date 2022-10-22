@@ -21,7 +21,7 @@
         <div class="signin">
             <img id="logo" src="{{ URL::asset('asset_image/MaiBoutique_black.png') }}" alt="">
             <div class="signin-template">
-                <form id="form" action="/signin" method="POST">
+                <form id="form" action="/signin" onsubmit="onSubmission()" method="POST">
                     @csrf
                     @if ($errors->has('unauthorized'))
                         <h3>{{ $errors->first('unauthorized') }}</h3>
