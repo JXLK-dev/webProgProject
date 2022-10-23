@@ -1,0 +1,68 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(/font_asset/Quicksand-VariableFont_wght.ttf)
+}
+
+body {
+    font-family: Quicksand;
+}
+
+#start_logo {
+    position: relative;
+    width: auto;
+    height: 200px;
+}
+
+#subtitle {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+#logo_header {
+    position: fixed;
+    left: 50px;
+    height: 70px;
+    width: auto;
+}
+
+.intro {
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    transition: 2s;
+}
+
+.MaiBoutique-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.MaiBoutique {
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+
+.MaiBoutique.active {
+    right: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.MaiBoutique.fade {
+    right: 155px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+.welcome {
+    font-size: 110px;
+}

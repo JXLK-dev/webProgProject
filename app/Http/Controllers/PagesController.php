@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class PagesController extends Controller
@@ -58,6 +59,7 @@ class PagesController extends Controller
                 'password' => $request->password
             ];
             if (Auth::attempt($cred)) {
+                Session::put('session', $cred);
                 sleep(2);
                 echo "<script>window.location.href = '/home';</script>";
             } else {
