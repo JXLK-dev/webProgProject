@@ -12,3 +12,4 @@ https://stackoverflow.com/questions/58725526/validation-of-an-email-address-in-l
 https://stackoverflow.com/questions/17799148/how-to-check-if-a-user-email-already-exist - unique data
 - inserting database
 https://stackoverflow.com/questions/47067127/php-sleep-in-milliseconds - usleep in miliseconds
+https://stackoverflow.com/questions/48766910/fetching-data-from-database-in-laravel - select database/retrieving data from database

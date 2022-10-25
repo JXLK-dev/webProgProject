@@ -20,8 +20,8 @@
                 @endauth
             </span>
         </h1>
-
     </div>
+    @include('navbar.navbar')
     <script src="{{ URL::asset('js/homepage.js') }}"></script>
 </body>
 

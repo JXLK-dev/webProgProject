@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    font-family: Quicksand;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(/font_asset/Quicksand-VariableFont_wght.ttf)
+}
+
+.navbar-left {
+    list-style-type: none;
+    display: flex;
+    background-color: red;
+}
+
+.navbar-left li {
+    float: left;
+    margin: 10px 10px 10px 10px;
+    text-decoration: none;
+}
