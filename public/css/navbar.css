@@ -12,12 +12,37 @@ body {
 
 .navbar-left {
     list-style-type: none;
-    display: flex;
-    background-color: red;
+    display: inline-flexbox;
+    padding-left: 200px;
+}
+
+#logo {
+    width: auto;
+    height: 50px;
+    z-index: -1;
+    position: absolute;
+    margin-left: 15px;
 }
 
 .navbar-left li {
     float: left;
-    margin: 10px 10px 10px 10px;
+    cursor: pointer;
+    margin: 32px 20px 10px 0px;
     text-decoration: none;
+    transition: 1s;
+}
+
+.navigation-bar {
+    width: 100%;
+}
+
+.navbar-left li:hover {
+    margin-top: 25px;
+    font-size: 25px;
+    transition: 1s;
+}
+
+.navbar-left li.right-panel {
+    list-style-type: none;
+    float: right;
 }
