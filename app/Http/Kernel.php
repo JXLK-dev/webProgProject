@@ -43,6 +43,9 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'authentication' => [
+            \App\Http\Middleware\RoleCheckToken::class,
+        ]
     ];
 
     /**
@@ -62,6 +65,5 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'rolecheck' => \App\Http\Middleware\RoleCheckToken::class
     ];
 }

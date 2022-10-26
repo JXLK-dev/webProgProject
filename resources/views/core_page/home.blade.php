@@ -13,4 +13,5 @@
         </h1>
     </div>
     <script src="{{ URL::asset('js/homepage.js') }}"></script>
+    @include('core_page.subhomecontent.catalogueview')
 @endsection

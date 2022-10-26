@@ -13,3 +13,5 @@ https://stackoverflow.com/questions/17799148/how-to-check-if-a-user-email-alread
 - inserting database
 https://stackoverflow.com/questions/47067127/php-sleep-in-milliseconds - usleep in miliseconds
 https://stackoverflow.com/questions/48766910/fetching-data-from-database-in-laravel - select database/retrieving data from database
+https://stackoverflow.com/questions/36838177/how-to-define-route-group-name-in-laravel -making middleware groups
+https://stackoverflow.com/questions/39880340/laravel-how-to-send-variable-from-one-page-to-another-in-blade - retrieving data from the previous page to another
