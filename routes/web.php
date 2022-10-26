@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 /*
@@ -15,8 +16,13 @@ use App\Http\Controllers\PagesController;
 
 Route::get('/', [PagesController::class, 'index']);
 Route::get('/signin', [PagesController::class, 'signIn']);
-Route::post('/signin', [PagesController::class, 'loginCredential']);
+Route::post('/signin', [AuthController::class, 'loginCredential']);
 Route::get('/home', [PagesController::class, 'Home'])->middleware('rolecheck');
 Route::get('/register', [PagesController::class, 'register']);
-Route::post('/register', [PagesController::class, 'registerCredential']);
-Route::get('/logout', [PagesController::class, 'logout']);
+Route::post('/register', [AuthController::class, 'registerCredential']);
+Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/search', [PagesController::class, 'search']);
+Route::get('/cart', [PagesController::class, 'cart']);
+Route::get('/history', [PagesController::class, 'history']);
+Route::get('/profile', [PagesController::class, 'profile']);
+Route::get('/additem', [PagesController::class, 'additem']);
