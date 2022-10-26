@@ -19,3 +19,4 @@ Route::post('/signin', [PagesController::class, 'loginCredential']);
 Route::get('/home', [PagesController::class, 'Home'])->middleware('rolecheck');
 Route::get('/register', [PagesController::class, 'register']);
 Route::post('/register', [PagesController::class, 'registerCredential']);
+Route::get('/logout', [PagesController::class, 'logout']);

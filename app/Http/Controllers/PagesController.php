@@ -31,6 +31,13 @@ class PagesController extends Controller
     {
         return view('core_page/home');
     }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+        return redirect('/signin');
+    }
     public function loginCredential(Request $request)
     {
         // $data = $request->safe()->only(['email', 'password']);
@@ -45,8 +52,8 @@ class PagesController extends Controller
         ];
 
         if ($request->remember) {
-            Cookie::queue('emailCookie', $request->email, 1000);
-            Cookie::queue('passwordCookie', $request->password, 1000);
+            Cookie::queue('emailCookie', $request->email, 5);
+            Cookie::queue('passwordCookie', $request->password, 5);
         }
 
         $validated = Validator::make($request->all(), $rules, $messages);
