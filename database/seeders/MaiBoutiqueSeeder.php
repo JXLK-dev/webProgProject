@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+use function PHPSTORM_META\map;
 
 class MaiBoutiqueSeeder extends Seeder
 {
@@ -14,5 +17,13 @@ class MaiBoutiqueSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('mai_boutiques')->insert([
+            'username' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+            'phone_number' => '08123456789',
+            'address' => 'Tangerang',
+            'role' => 'admin'
+        ]);
     }
 }

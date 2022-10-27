@@ -31,10 +31,12 @@
             <li style="@if (Request::path() == 'profile') font-weight:bold; font-size:20px; margin-top:25px; @endif">
                 <a href="{{ url('profile') }}">Profile</a>
             </li>
-            <li class="right-panel"
-                style="@if (Request::path() == 'additem') font-weight:bold; font-size:20px; margin-top:25px; @endif"><a
-                    href="{{ url('additem') }}">
-                    Add item</a></li>
+            @if (Auth::user()->role == 'admin')
+                <li class="right-panel"
+                    style="@if (Request::path() == 'additem') font-weight:bold; font-size:20px; margin-top:25px; @endif">
+                    <a href="{{ url('additem') }}">
+                        Add item</a></li>
+            @endif
             <li class="right-panel"
                 style="@if (Request::path() == 'logout') font-weight:bold; font-size:20px; margin-top:25px; @endif">
                 <a href="{{ url('logout') }}">Logout</a>
