@@ -15,3 +15,6 @@ https://stackoverflow.com/questions/47067127/php-sleep-in-milliseconds - usleep 
 https://stackoverflow.com/questions/48766910/fetching-data-from-database-in-laravel - select database/retrieving data from database
 https://stackoverflow.com/questions/36838177/how-to-define-route-group-name-in-laravel -making middleware groups
 https://stackoverflow.com/questions/39880340/laravel-how-to-send-variable-from-one-page-to-another-in-blade - retrieving data from the previous page to another
+https://www.w3schools.com/js/js_cookies.asp - read cookie in javascript
+https://www.w3schools.com/js/js_cookies.asp cookie manipulation
+https://stackoverflow.com/questions/53737346/how-to-create-and-destroy-cookie-in-laravel-5-7 forget cookie

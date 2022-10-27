@@ -47,4 +47,8 @@ class PagesController extends Controller
     {
         return view('core_page/profile');
     }
+    public function additem()
+    {
+        return view('admin_page.additem');
+    }
 }
