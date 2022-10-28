@@ -1,0 +1,30 @@
+.Add-template {
+    background-color: red;
+    width: 75vh;
+    margin-top: 15vh;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+    position: absolute;
+    height: 65vh;
+    inset: 0;
+}
+
+form {
+    width: 50%;
+    position: relative;
+    right: 0;
+    margin-left: auto;
+}
+
+.input-add {
+    display: block;
+    width: 80%;
+    height: 25px;
+}
+
+.input-label {
+    font-weight: bold;
+    font-size: 20px;
+}
