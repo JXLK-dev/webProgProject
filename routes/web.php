@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 /*
@@ -28,4 +29,5 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/history', [PagesController::class, 'history']);
     Route::get('/profile', [PagesController::class, 'profile']);
     Route::get('/additem', [PagesController::class, 'additem']);
+    Route::post('/additem', [ItemController::class, 'addItem']);
 });

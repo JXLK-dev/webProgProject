@@ -18,3 +18,5 @@ https://stackoverflow.com/questions/39880340/laravel-how-to-send-variable-from-o
 https://www.w3schools.com/js/js_cookies.asp - read cookie in javascript
 https://www.w3schools.com/js/js_cookies.asp cookie manipulation
 https://stackoverflow.com/questions/53737346/how-to-create-and-destroy-cookie-in-laravel-5-7 forget cookie
+https://stackoverflow.com/questions/31893439/image-validation-in-laravel-5-intervention - image validation
+https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names - change name in error message
