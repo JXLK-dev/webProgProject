@@ -10,7 +10,7 @@ https://medium.com/@antoine.lame/laravel-asynchronous-and-concurrent-http-reques
 https://codingdriver.com/retain-old-value-on-validation-error-in-laravel.html - retaining data after validation
 https://stackoverflow.com/questions/58725526/validation-of-an-email-address-in-laravel data validation for email
 https://stackoverflow.com/questions/17799148/how-to-check-if-a-user-email-already-exist - unique data
-- inserting database
+https://stackoverflow.com/questions/39118995/difference-between-laravel-dbinsert-and-dbtable-insert - inserting database
 https://stackoverflow.com/questions/47067127/php-sleep-in-milliseconds - usleep in miliseconds
 https://stackoverflow.com/questions/48766910/fetching-data-from-database-in-laravel - select database/retrieving data from database
 https://stackoverflow.com/questions/36838177/how-to-define-route-group-name-in-laravel -making middleware groups
@@ -22,3 +22,5 @@ https://stackoverflow.com/questions/31893439/image-validation-in-laravel-5-inter
 https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names - change name in error message
 https://stackoverflow.com/questions/12368910/html-display-image-after-selecting-filename - show image after input file
 https://stackoverflow.com/questions/48256187/laravel-5-5-image-validation-not-working - for validating images
+for autentication, the reference are from bluejack videos
+https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names customizing attributes nam in validation
