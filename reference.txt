@@ -20,3 +20,5 @@ https://www.w3schools.com/js/js_cookies.asp cookie manipulation
 https://stackoverflow.com/questions/53737346/how-to-create-and-destroy-cookie-in-laravel-5-7 forget cookie
 https://stackoverflow.com/questions/31893439/image-validation-in-laravel-5-intervention - image validation
 https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names - change name in error message
+https://stackoverflow.com/questions/12368910/html-display-image-after-selecting-filename - show image after input file
+https://stackoverflow.com/questions/48256187/laravel-5-5-image-validation-not-working - for validating images

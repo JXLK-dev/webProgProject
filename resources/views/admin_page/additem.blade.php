@@ -1,10 +1,15 @@
 @extends('navbar.navbar')
 @section('content')
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
     <link rel="stylesheet" href="{{ URL::asset('css/additem.css') }}">
+    <script src="{{ URL::asset('js/image.js') }}"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
     <div class="background">
         <h2>Add Item</h2>
         <div class="Add-template">
-            <form action="/additem" method="POST">
+            <form action="/additem" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="text-input">
                     <label class="input-label" for="CName">Clothes Name</label>
@@ -28,8 +33,12 @@
                         <h1>{{ $errors->first('CStock') }}</h1>
                     @endif
                     <div class="image">
+                        @if ($errors->has('CImage'))
+                            <h1>{{ $errors->first('CImage') }}</h1>
+                        @endif
                         <label for="CImage" class="input-label">Item Image</label>
-                        <input type="file" id="CImage" name="CImage">
+                        <input type="file" id="CImage" name="CImage" class="add-button" onchange="read(this);">
+                        <img src="#" id="image">
                     </div>
                 </div>
                 <div class="back">

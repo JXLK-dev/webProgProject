@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ItemController extends Controller
@@ -22,12 +23,14 @@ class ItemController extends Controller
             'CDesc' => 'Description',
             'CPrice' => 'Price',
             'CStock' => 'Stock',
+            'CImage' => 'Photo'
         );
         $rules = array(
-            'CName' => 'required|min: 5|max: 20',
+            'CName' => 'required|min: 5|max: 20|unique:item_details,name',
             'CDesc' => 'required|min: 5',
             'CPrice' => 'required|integer|min: 1000',
             'CStock' => 'required|integer|min: 1',
+            'CImage' => 'required|mimes: jpeg,jpg,png'
         );
         $message = [
             'min' => 'minimum 5 characters',
@@ -42,12 +45,19 @@ class ItemController extends Controller
         if ($validated->fails()) {
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            DB::table('item_details')->insert([
-                'name' => $request->CName,
-                'description' => $request->CDesc,
-                'price' => $request->CPrice,
-                'stock' => $request->CStock,
-            ]);
+            $ext = $request->file('CImage')->extension();
+            Storage::putFileAs('/public/images', $request->CImage, $request->CName . "_image_." . $ext);
+            DB::insert(
+                'insert into item_details (name,description,price,stock,image) values (?, ?,?,?,?)',
+                [
+                    $request->CName,
+                    $request->CDesc,
+                    $request->CPrice,
+                    $request->CStock,
+                    'storage/images/' . $request->CName . '_image_.' . $ext
+                ]
+            );
+            return redirect()->back();
         }
     }
 }
