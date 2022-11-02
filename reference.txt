@@ -24,3 +24,4 @@ https://stackoverflow.com/questions/12368910/html-display-image-after-selecting-
 https://stackoverflow.com/questions/48256187/laravel-5-5-image-validation-not-working - for validating images
 for autentication, the reference are from bluejack videos
 https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names customizing attributes nam in validation
+https://laravel.com/docs/8.x/queries#running-database-queries - getting data from database

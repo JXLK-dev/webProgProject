@@ -1,0 +1,51 @@
+.add-button {
+    border: 2px solid black;
+    font-family: Quicksand;
+    background-color: white;
+    border-radius: 20px;
+    height: 60px;
+    width: auto;
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+    top: 0px;
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+
+.add-button:hover {
+    box-shadow: 5px 5px #888888;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.background {
+    top: 250px;
+    height: 50px;
+    width: 95vh;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-box {
+    width: 192px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+.header-catalogue {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    margin-top: 15vh;
+}

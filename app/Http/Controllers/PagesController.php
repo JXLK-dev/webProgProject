@@ -29,7 +29,8 @@ class PagesController extends Controller
     }
     public function Home()
     {
-        return view('core_page/home');
+        $item_details = DB::table('item_details')->get();
+        return view('core_page/home', ['item_details' => $item_details]);
     }
     public function Search()
     {
