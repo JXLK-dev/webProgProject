@@ -14,7 +14,7 @@ class ItemDetails extends Migration
     public function up()
     {
         //
-        Schema::create('item_details', function (Blueprint $table) {
+        Schema::create('itemdetails', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('description');

@@ -26,7 +26,7 @@ class ItemController extends Controller
             'CImage' => 'Photo'
         );
         $rules = array(
-            'CName' => 'required|min: 5|max: 20|unique:item_details,name',
+            'CName' => 'required|min: 5|max: 20|unique:itemdetails,name',
             'CDesc' => 'required|min: 5',
             'CPrice' => 'required|integer|min: 1000',
             'CStock' => 'required|integer|min: 1',
@@ -48,7 +48,7 @@ class ItemController extends Controller
             $ext = $request->file('CImage')->extension();
             Storage::putFileAs('/public/images', $request->CImage, $request->CName . "_image_." . $ext);
             DB::insert(
-                'insert into item_details (name,description,price,stock,image) values (?, ?,?,?,?)',
+                'insert into itemdetails (name,description,price,stock,image) values (?, ?,?,?,?)',
                 [
                     $request->CName,
                     $request->CDesc,

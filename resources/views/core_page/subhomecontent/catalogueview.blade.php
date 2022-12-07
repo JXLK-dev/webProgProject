@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/subhome.css') }}">
 <h1 class="header-catalogue">Find your best clothes to wear</h1>
 <div class="background">
-    @foreach ($item_details as $key => $item)
+    @foreach ($itemdetails as $key => $item)
         <div class="item-box">
             <img src="" alt="">
             <h2>{{ $item->name }}</h2>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\itemdetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -29,8 +30,8 @@ class PagesController extends Controller
     }
     public function Home()
     {
-        $item_details = DB::table('item_details')->get();
-        return view('core_page/home', ['item_details' => $item_details]);
+        $itemdetails = itemdetail::all();
+        return view('core_page/home', ['itemdetails' => $itemdetails]);
     }
     public function Search()
     {
