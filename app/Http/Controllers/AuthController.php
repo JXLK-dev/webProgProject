@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\usercredential;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -81,10 +82,13 @@ class AuthController extends Controller
             usleep(1000 * 1000 - 100000);
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            DB::insert(
-                'insert into mai_boutiques (username,email,password,phone_number,address) values (?, ?, ?, ?, ?)',
-                [$request->username, $request->email, bcrypt($request->password), $request->phone_number, $request->address]
-            );
+            $credential = new usercredential;
+            $credential->username = $request->username;
+            $credential->email = $request->email;
+            $credential->password = bcrypt($request->password);
+            $credential->phone_number = $request->phone_number;
+            $credential->address = $request->address;
+            $credential->save();
             sleep(0.2);
             return redirect('/signin');
             // sleep(1);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\itemdetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -47,16 +48,13 @@ class ItemController extends Controller
         } else {
             $ext = $request->file('CImage')->extension();
             Storage::putFileAs('/public/images', $request->CImage, $request->CName . "_image_." . $ext);
-            DB::insert(
-                'insert into itemdetails (name,description,price,stock,image) values (?, ?,?,?,?)',
-                [
-                    $request->CName,
-                    $request->CDesc,
-                    $request->CPrice,
-                    $request->CStock,
-                    'storage/images/' . $request->CName . '_image_.' . $ext
-                ]
-            );
+            $itemdetails = new itemdetail;
+            $itemdetails->name = $request->CName;
+            $itemdetails->description = $request->CDesc;
+            $itemdetails->price = $request->CPrice;
+            $itemdetails->stock = $request->CStock;
+            $itemdetails->image = 'storage/images/' . $request->CName . '_image_.' . $ext;
+            $itemdetails->save();
             return redirect()->back();
         }
     }
