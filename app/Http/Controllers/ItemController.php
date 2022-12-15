@@ -53,7 +53,7 @@ class ItemController extends Controller
             $itemdetails->description = $request->CDesc;
             $itemdetails->price = $request->CPrice;
             $itemdetails->stock = $request->CStock;
-            $itemdetails->image = 'storage/images/' . $request->CName . '_image_.' . $ext;
+            $itemdetails->image = 'storage/images/'  . $request->CName . '_image_.' . $ext;
             $itemdetails->save();
             return redirect()->back();
         }

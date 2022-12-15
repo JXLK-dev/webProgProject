@@ -21,6 +21,7 @@ class ItemDetails extends Migration
             $table->double('price');
             $table->integer('stock');
             $table->string('image');
+            $table->timestamps();
         });
     }
 

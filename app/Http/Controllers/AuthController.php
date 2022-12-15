@@ -62,8 +62,8 @@ class AuthController extends Controller
     public function registerCredential(Request $request)
     {
         $rules = array(
-            'username' => 'required|max:20|min:5|unique:mai_boutiques,username',
-            'email' => 'required|email:rfc,dns|unique:mai_boutiques,email',
+            'username' => 'required|max:20|min:5|unique:usercredentials,username',
+            'email' => 'required|email:rfc,dns|unique:usercredentials,email',
             'password' => 'required|max:20|min:5',
             'phone_number' => 'required|min:10|max:13',
             'address' => 'required|min:5'
