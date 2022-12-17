@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item_Details;
+use App\Models\maiBoutique;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -29,16 +31,18 @@ class PagesController extends Controller
     }
     public function Home()
     {
-        $item_details = DB::table('item_details')->get();
+        $item_details = Item_Details::paginate(8);
         return view('core_page/home', ['item_details' => $item_details]);
     }
-    public function Search()
+    public function Search(Request $request)
     {
-        return view('core_page/search');
+        $searchquery = $request->searchquery;
+        $item_details = Item_Details::where('name', 'LIKE', "%$searchquery%")->paginate(8)->appends(['searchquery' => $searchquery]);
+        return view('core_page/search')->with(compact('item_details'));
     }
-    public function Cart()
+    public function ViewCart()
     {
-        return view('core_page/cart');
+        return view('core_page/viewcart');
     }
     public function History()
     {
@@ -51,5 +55,12 @@ class PagesController extends Controller
     public function additem()
     {
         return view('admin_page.additem');
+    }
+
+    public function editprofile(Request $request)
+    {
+        $id = $request->route('user_id');
+        $user = maiBoutique::where('id', $id)->first();
+        return view('core_page/editprofile')->with(compact('user'));
     }
 }

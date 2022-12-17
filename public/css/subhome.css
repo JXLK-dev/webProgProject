@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 
-.background {
+/* .background {
     top: 250px;
     height: 50px;
     width: 95vh;
@@ -34,6 +34,16 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
+} */
+
+.items-container{
+    width:80%;
+    display:flex;
+    flex-wrap:wrap;
+    margin:auto;
+    margin-top:100px;
+    padding:100px;
+    justify-content: center;
 }
 
 .item-box {
@@ -41,6 +51,44 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 15px;
+    border:1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-box h2{
+    margin-bottom: 0px;
+}
+
+.item-box h3{
+    margin-top: 0px;
+}
+
+.item-detail-box{
+    width:60%;
+    margin:auto;
+    /* margin-top: 300px; */
+    border:1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding:10px;
+    display: flex;
+}
+
+.item-detail-box img{
+    align-self: flex-start;
+    margin:20px;
+}
+
+.quantity-wrapper{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-group{
+    display: flex;
+    align-items: flex-end;
 }
 
 .header-catalogue {
@@ -48,4 +96,72 @@
     width: 100%;
     position: absolute;
     margin-top: 15vh;
+}
+
+.btn{
+    border: 2px solid black;
+    font-family: Quicksand;
+    border-radius: 20px;
+    font-size: 20px;
+    width:120px;
+    height:30px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+}
+
+.btn:hover{
+    box-shadow: 3px 3px #888888;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.pagination{
+    list-style: none;
+    display: flex;
+    margin: auto;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.page-item:first-of-type .page-link{
+    border-radius: 5px 0px 0px 5px;
+}
+
+.page-item:last-of-type .page-link{
+    border-radius: 0px 5px 5px 0px;
+}
+
+.page-item .page-link{
+    height:100%;
+    padding:10px 15px;
+    border: 1px solid black;
+}
+
+.page-item .page-link:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.pagination .active .page-link{
+    background-color: black;
+    color: white;
+}
+
+.pagination .disabled .page-link{
+    background:none;
+    color:#e2e2e2;
+}
+
+.pagination .disabled .page-link:hover{
+    cursor:default;
 }
