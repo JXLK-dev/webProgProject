@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item_Details;
-use App\Models\maiBoutique;
 use App\Models\itemdetail;
 use App\Models\usercredential;
 use Illuminate\Http\Request;
@@ -37,6 +35,8 @@ class PagesController extends Controller
         $item_details = itemdetail::paginate(8);
         return view('core_page/home', ['item_details' => $item_details]);
         $itemdetails = itemdetail::all();
+        $itemdetails = itemdetail::paginate(8);
+
         return view('core_page/home', ['itemdetails' => $itemdetails]);
     }
     public function Search(Request $request)
