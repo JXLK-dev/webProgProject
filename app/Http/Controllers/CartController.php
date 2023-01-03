@@ -45,20 +45,35 @@ class CartController extends Controller
                 $insert->quantity = $request->quantity;
                 $insert->save();
             } else {
-                $qty = CartDetail::where(
+                if (CartDetail::where(
                     'user_id',
                     Auth::id()
                 )->where(
                     'transaction_id',
                     Auth::user()->number_of_transaction + 1
-                )->get();
+                )->get()[0]->item_id == $product_id) {
+                    $qty = CartDetail::where(
+                        'user_id',
+                        Auth::id()
+                    )->where(
+                        'transaction_id',
+                        Auth::user()->number_of_transaction + 1
+                    )->get();
 
-                $insertExist = CartDetail::where(
-                    'user_id',
-                    Auth::id()
-                )->where('transaction_id', Auth::user()->number_of_transaction + 1)->update([
-                    'quantity' => $qty[0]->quantity + $request->quantity
-                ]);
+                    CartDetail::where(
+                        'user_id',
+                        Auth::id()
+                    )->where('transaction_id', Auth::user()->number_of_transaction + 1)->update([
+                        'quantity' => $qty[0]->quantity + $request->quantity
+                    ]);
+                } else {
+                    $insert = new CartDetail;
+                    $insert->user_id = Auth::id();
+                    $insert->transaction_id = Auth::user()->number_of_transaction + 1;
+                    $insert->item_id = $product_id;
+                    $insert->quantity = $request->quantity;
+                    $insert->save();
+                }
             }
             return redirect()->to('home');
         }
