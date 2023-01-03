@@ -25,8 +25,17 @@ https://stackoverflow.com/questions/48256187/laravel-5-5-image-validation-not-wo
 for autentication, the reference are from bluejack videos
 https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names customizing attributes nam in validation
 https://laravel.com/docs/8.x/queries#running-database-queries - getting data from database
+https://www.malasngoding.com/seeding-dan-faker-pada-laravel/ - how to use faker
+https://github.com/fzaninotto/Faker - faker
+https://github.com/fzaninotto/Faker/issues/1884 - faker image url issues
+https://fakerphp.github.io/formatters/image/ - faker image formatter
+https://stackoverflow.com/questions/64220203/how-to-get-unique-values-from-faker - faker unique value
+https://alternativeto.net/software/lorempixel/ - find alternative to lorempixel (the default image url base in the fzaninotto's faker)
 https://stackoverflow.com/a/73756461/19383743 - faker image url modification
+https://stackoverflow.com/questions/724391/saving-image-from-php-url - save image from url
 https://laracasts.com/discuss/channels/laravel/how-to-decrypt-bcrypt-password
 https://postsrc.com/code-snippets/how-to-get-last-record-row-in-laravel
 https://stackoverflow.com/questions/42766365/how-to-save-int-fields-as-null-in-laravel
-
+https://www.w3schools.com/howto/howto_js_popup.asp - create popup when deleting item in item details page for admin
+https://www.youtube.com/watch?v=Mylh7H844Ro - pagination
+https://www.educative.io/answers/how-to-customize-laravel-pagination-links - pagination customization
