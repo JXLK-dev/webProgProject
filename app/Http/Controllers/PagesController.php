@@ -42,13 +42,6 @@ class PagesController extends Controller
         $itemdetails = itemdetail::where('name', 'LIKE', "%$searchquery%")->paginate(8)->appends(['searchquery' => $searchquery]);
         return view('core_page/search')->with(compact('itemdetails'));
     }
-    public function History()
-    {
-        $transactions = Transaction::where('user_id', Auth::user());
-        $transactiondetails = TransactionDetail::where('id', $transactions->id);
-        $itemlist = [];
-        return view('core_page/history')->with(compact('transactiondetails'));
-    }
     public function Profile()
     {
         return view('core_page/profile');
@@ -71,5 +64,10 @@ class PagesController extends Controller
         $id = $request->route('user_id');
         $user = usercredential::where('id', $id)->first();
         return view('core_page/editpassword')->with(compact('user'));
+    }
+
+    public function editcart()
+    {
+        return view('core_page/editcart');
     }
 }

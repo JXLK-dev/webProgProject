@@ -1,18 +1,50 @@
-{{-- <link rel="stylesheet" href="{{ URL::asset('css/subhome.css') }}"> --}}
-<h1 class="header-catalogue">Check What You've Bought!</h1>
+@extends('navbar.navbar')
+<link rel="stylesheet" href="{{ URL::asset('css/transaction.css') }}">
+@section('content')
+<h1 class="header">Check What You've Bought!</h1>
 
-{{-- <div class="background"> --}}
-<div class="transaction-containter">
-    {{-- <div class="background"> --}}
-    @foreach ($transactiondetails as $key => $td)
-        <div class="item-box">
-            <h2>{{ $tran->created_at }}</h2>
+<div class="transaction-container">
+    {{-- @foreach ($transactiondetails as $key => $td) --}}
+        <div class="transaction">
+            {{-- <h2>{{ Tanggal transaction }}</h2> --}}
+            <h2>2023-03-01</h2>
             <ul class = "item-list">
-                @foreach ($items as $i)
-                    <li>{{ $td->item_id }}</li>
-                @endforeach
+                {{-- list item yang ada di dalam transaction --}}
+
+                {{-- @foreach ($items as $i)
+                    <li>{{qty}} pc(s) {{ item_name }} Rp{{ price }}</li>
+                @endforeach --}}
+
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+
             </ul>
-            <h3>Rp{{ $tran->total }}</h3>
+            {{-- <h3>Total Price Rp{{ total price }}</h3> --}}
+            <h3>Total Price Rp</h3>
         </div>
-    @endforeach
+        <div class="transaction">
+            {{-- <h2>{{ Tanggal transaction }}</h2> --}}
+            <h2>2023-03-01</h2>
+            <ul class = "item-list">
+                {{-- list item yang ada di dalam transaction --}}
+
+                {{-- @foreach ($items as $i)
+                    <li>{{qty}} pc(s) {{ item_name }} Rp{{ price }}</li>
+                @endforeach --}}
+
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+                <li>1 pc(s) item_name Rp199999</li>
+
+            </ul>
+            {{-- <h3>Total Price Rp{{ total price }}</h3> --}}
+            <h3>Total Price Rp</h3>
+        </div>
+    {{-- @endforeach --}}
 </div>
+@endsection
