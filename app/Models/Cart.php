@@ -17,11 +17,13 @@ class Cart extends Model
         'name',
         'total'
     ];
-    public function items(){
-        return $this->hasMany(Item_Details::class);
+    public function items()
+    {
+        return $this->hasMany(itemdetails::class);
     }
-    public function user(){
-        return $this->belongsTo(maiBoutique::class);
+    public function user()
+    {
+        return $this->belongsTo(usercredential::class);
     }
-    protected $table='carts';
+    protected $table = 'carts';
 }

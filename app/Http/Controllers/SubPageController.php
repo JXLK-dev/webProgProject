@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\DB;
 class SubPageController extends Controller
 {
     //
-    public function item_details(Request $request)
+    public function item_details($product_id)
     {
-        $id = $request->route('product_id');
-        $item = Itemdetail::where('id', $id)->first();
-        return view('core_page.subhomecontent.itemdetails')->with(compact('item'));
+        // $id = $request->route('product_id');
+        $item = Itemdetail::where('id', $product_id)->first();
+        return view('core_page/subhomecontent/itemdetails')->with(compact('item'));
     }
 }
