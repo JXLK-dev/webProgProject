@@ -65,11 +65,11 @@ class CartController extends Controller
     }
     public function fetchData()
     {
-        $cart = CartDetail::where('id', Auth::id())->where(
+        $cart = CartDetail::where('user_id', Auth::id())->where(
             'transaction_id',
             Auth::user()->number_of_transaction + 1
         )->get()[0];
-        dd($cart);
+        dd($cart->item());
         return view('core_page.viewcart')->with(compact('cart'));
     }
 }

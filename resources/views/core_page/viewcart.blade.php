@@ -11,17 +11,16 @@
     </div>
     {{-- <div class="background"> --}}
     <div class="items-container">
-        @foreach ($cart->item as $item)
+        @foreach ($cart as $item)
             <div class="item-box">
-                {{--
-                    <img src="{{ image produk }}" alt="{{ nama produk }} image">
-                    <h5>{{ nama produk }}</h5>
-                    Rp{{ harga produk }}
-                    {{ quantity }}
-                    <a class="btn" href="editcart/{{ item id }}">Edit Cart</a>
-                    <a class="btn" href="viewcart/{{ item id }}">Remove from Cart</a>
-                    --}}
-                <img src="https://lzd-img-global.slatic.net/g/p/2f8ef9e37811c10f67c14f83eb3230b9.jpg_720x720q80.jpg_.webp">
+                <img src="{{ $item->image }}" alt="{{ $item->name }}">
+                <h5>{{ $item->name }}</h5>
+                <h3>Rp{{ $item->price }}</h3>
+                {{-- <p>Qty: {{ $item->quantity }}</p> --}}
+                <a class="btn" href="editcart/">Edit Cart</a>
+                <a class="btn" href="viewcart/">Remove from Cart</a>
+
+                {{-- <img src="https://lzd-img-global.slatic.net/g/p/2f8ef9e37811c10f67c14f83eb3230b9.jpg_720x720q80.jpg_.webp">
                 <h2>Kemeja</h2>
                 <h3>Rp299999</h3>
                 <p>Qty:2</p>
@@ -30,7 +29,7 @@
                     <a class="btn del" href="#">Remove from Cart</a>
                 </div>
             </div>
-            <div class="item-box">
+            <div class="item-box"> --}}
                 {{--
                     <img src="{{ image produk }}" alt="{{ nama produk }} image">
                     <h5>{{ nama produk }}</h5>
@@ -39,15 +38,6 @@
                     <a class="btn" href="editcart/{{ item id }}">Edit Cart</a>
                     <a class="btn" href="viewcart/{{ item id }}">Remove from Cart</a>
                     --}}
-                <img src="https://lzd-img-global.slatic.net/g/p/2f8ef9e37811c10f67c14f83eb3230b9.jpg_720x720q80.jpg_.webp">
-                <h2>Kemeja</h2>
-                <h3>Rp299999</h3>
-                <p>Qty:2</p>
-                <div class="btn-group">
-                    <a href="/editcart" class="btn">Edit Cart</a>
-                    <a class="btn del" href="#">Remove from Cart</a>
-                </div>
-            </div>
         @endforeach
         {{-- @php
                     $i++
