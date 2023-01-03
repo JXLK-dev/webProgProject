@@ -13,7 +13,7 @@
     <div class="items-container">
         @foreach ($cart as $it)
             <div class="item-box">
-                {{-- <img src="{{ asset($it->image) }}" alt="{{ $it->name }}"> --}}
+                <img src="{{ asset($it->item->image) }}" alt="{{ $it->item->name }}">
                 <h5>{{ $it->item->name }}</h5>
                 <h3>Rp{{ $it->item->price }}</h3>
                 <p>Qty: {{ $it->quantity }}</p>
