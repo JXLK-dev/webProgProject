@@ -68,13 +68,19 @@ class ItemController extends Controller
     public function viewCart(Request $request)
     {
         $user = $request->user();
-        $cart_details = $user::find($user->id)->cart->cart_details->all();
-        // $item = itemdetail::whereBelongsTo($cart_details)->get();
+        $cart = $user::find($user->id)->cart;
+        $cart_details='null';
         $items = array();
-        foreach ($cart_details as $cd) {
-            array_push($items,itemdetail::where('id', $cd->item_id)->first());
+        if(isNull($cart))
+        {
+            return view('core_page/viewcart')->with('Nothing in the cart, yet.');
         }
-        // $itemsvariable = $items;
+        else{
+            $cart_details = $cart->cart_details->all();
+            foreach ($cart_details as $cd) {
+                array_push($items,itemdetail::where('id', $cd->item_id)->first());
+            }
+        }
         return view('core_page/viewcart')->with(compact('cart_details'))->with(compact('items'));
     }
 

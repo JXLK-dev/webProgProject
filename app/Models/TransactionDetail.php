@@ -12,4 +12,8 @@ class TransactionDetail extends Model
         'transaction_id', 'item_id', 'quantity'
     ];
     protected $table = 'transactiondetails';
+
+    public function tran(){
+        return $this->belongsTo(Transaction::class);
+    }
 }
