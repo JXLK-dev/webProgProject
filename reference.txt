@@ -25,3 +25,6 @@ https://stackoverflow.com/questions/48256187/laravel-5-5-image-validation-not-wo
 for autentication, the reference are from bluejack videos
 https://stackoverflow.com/questions/17047116/laravel-validation-attributes-nice-names customizing attributes nam in validation
 https://laravel.com/docs/8.x/queries#running-database-queries - getting data from database
+https://stackoverflow.com/a/73756461/19383743 - faker image url modification
+
+
