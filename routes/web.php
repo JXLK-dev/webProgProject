@@ -25,8 +25,8 @@ Route::get('/register', [PagesController::class, 'register']);
 Route::post('/register', [AuthController::class, 'registerCredential']);
 Route::group(['middleware' => ['authentication']], function () {
     Route::get('/home', [PagesController::class, 'Home']);
-    Route::get('/home/item_details/{product_id}', [SubPageController::class, 'item_details']);
-    Route::post('/home/item_details/{product_id}', [CartController::class, 'addItem']);
+    Route::get('/home/itemdetails/{product_id}', [SubPageController::class, 'item_details']);
+    Route::post('/home/itemdetails/{product_id}', [CartController::class, 'addItem']);
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/search', [PagesController::class, 'search']);
     Route::get('/viewcart', [PagesController::class, 'viewcart']);

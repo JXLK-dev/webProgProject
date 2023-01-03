@@ -12,7 +12,7 @@
                 <form id="form" action="/editpassword" method="POST">
                     @csrf
                     <label for="oldpassword" class="inputLabel">Old Password</label>
-                    <input type="text" class="input" name="oldpassword" id="oldpassword"
+                    <input type="password" class="input" name="oldpassword" id="oldpassword"
                         value="{{ old('oldpassword') }}">
                     @if ($errors->has('oldpassword'))
                         <h3>{{ $errors->first('oldpassword') }}</h3>
@@ -21,7 +21,7 @@
                         <h3>{{ $errors->first('unauthorized') }}</h3>
                     @endif
                     <label for="newpassword" class="inputLabel">New Password</label>
-                    <input type="text" class="input" name="newpassword" id="newpassword"
+                    <input type="password" class="input" name="newpassword" id="newpassword"
                         value="{{ old('newpassword') }}">
                     @if ($errors->has('newpassword'))
                         <h3>{{ $errors->first('newpassword') }}</h3>
