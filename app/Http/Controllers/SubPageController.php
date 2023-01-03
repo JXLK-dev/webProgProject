@@ -14,6 +14,6 @@ class SubPageController extends Controller
     {
         $id = $request->route('product_id');
         $item = Itemdetail::where('id', $id)->first();
-        return view('core_page/subhomecontent/itemdetails')->with(compact('item'));
+        return view('core_page.subhomecontent.itemdetails')->with(compact('item'));
     }
 }

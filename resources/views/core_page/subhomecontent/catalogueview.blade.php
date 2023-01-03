@@ -9,7 +9,7 @@
             <img src="{{ URL::asset($item->image) }}" alt="{{ $item->name }} image">
             <h2>{{ $item->name }}</h2>
             <h3>Rp{{ $item->price }}</h3>
-            <a class="btn" href="home/itemdetails/{{ $item->id }}">More Detail</a>
+            <a class="btn" href="home/item_details/{{ $item->id }}">More Detail</a>
         </div>
     @endforeach
 </div>
