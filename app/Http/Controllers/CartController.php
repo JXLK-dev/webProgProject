@@ -13,12 +13,7 @@ use function PHPUnit\Framework\isNull;
 class CartController extends Controller
 {
     //
-    public function viewCart(Request $request)
-    {
-        $user = $request->user();
-        $cart = Cart::where('user_id', $user->id)->first();
-        return view('viewcart')->with(compact($cart));
-    }
+
 
     public function addItem(Request $request)
     {

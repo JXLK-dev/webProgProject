@@ -29,7 +29,7 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::post('/home/itemdetails/{product_id}', [CartController::class, 'addItem']);
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/search', [PagesController::class, 'search']);
-    Route::get('/viewcart', [PagesController::class, 'viewcart']);
+    Route::get('/viewcart', [ItemController::class, 'viewcart']);
     Route::get('/history', [PagesController::class, 'history']);
     Route::get('/profile', [PagesController::class, 'profile']);
     Route::get('/additem', [PagesController::class, 'additem']);
@@ -39,4 +39,6 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/home/{item_id}', [ItemController::class, 'delete']);
     Route::get('/editpassword', [PagesController::class, 'editpassword']);
     Route::post('/editpassword', [AuthController::class, 'editpassword']);
+    Route::get('/editcart/{product_id}', [PagesController::class], 'editcart');
+    Route::get('/viewcart/{product_id}', [PagesController::class], 'viewcart');
 });

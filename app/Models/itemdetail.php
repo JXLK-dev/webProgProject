@@ -12,4 +12,9 @@ class Itemdetail extends Model
         'name', 'description', 'price', 'stock', 'image'
     ];
     protected $table = 'itemdetails';
+
+    public function cart_detail()
+    {
+        return $this->belongsTo(CartDetail::class, 'item_id');
+    }
 }

@@ -33,12 +33,7 @@ class PagesController extends Controller
     }
     public function Home()
     {
-
         $itemdetails = itemdetail::paginate(8);
-        return view('core_page/home', ['itemdetails' => $itemdetails]);
-        $itemdetails = itemdetail::all();
-        $itemdetails = itemdetail::paginate(8);
-
         return view('core_page/home', ['itemdetails' => $itemdetails]);
     }
     public function Search(Request $request)
@@ -55,6 +50,10 @@ class PagesController extends Controller
     {
         $transactions = Transaction::where('user_id', Auth::user());
         $transactiondetails = TransactionDetail::where('id', $transactions->id);
+        $itemlist = [];
+        foreach ($transactiondetails as $key => $td) {
+            // $itemlist->appends
+        }
         return view('core_page/history')->with(compact('transactiondetails'));
     }
     public function Profile()

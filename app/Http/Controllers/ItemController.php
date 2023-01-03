@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\CartDetail;
 use App\Models\itemdetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,21 +53,29 @@ class ItemController extends Controller
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
             $ext = $request->file('CImage')->extension();
-            Storage::putFileAs('/public/images', $request->CImage, $request->CName . "_image_." . $ext);
+            Storage::putFileAs('/public/images', $request->CImage, str_replace(' ', '', $request->CName) . "_image_" . $ext);
             $itemdetails = new itemdetail;
             $itemdetails->name = $request->CName;
             $itemdetails->description = $request->CDesc;
             $itemdetails->price = $request->CPrice;
             $itemdetails->stock = $request->CStock;
-            $itemdetails->image = 'storage/images/'  . $request->CName . '_image_.' . $ext;
+            $itemdetails->image = 'storage/images/'  . str_replace(' ', '', $request->CName) . '_image_' . $ext;
             $itemdetails->save();
             return redirect()->back();
         }
     }
 
-    public function viewcart()
+    public function viewCart(Request $request)
     {
-        return view('core_page.viewcart');
+        $user = $request->user();
+        $cart_details = $user::find($user->id)->cart->cart_details->all();
+        // $item = itemdetail::whereBelongsTo($cart_details)->get();
+        $items = array();
+        foreach ($cart_details as $cd) {
+            array_push($items,itemdetail::where('id', $cd->item_id)->first());
+        }
+        // $itemsvariable = $items;
+        return view('core_page/viewcart')->with(compact('cart_details'))->with(compact('items'));
     }
 
     public function addToCart(Request $request)

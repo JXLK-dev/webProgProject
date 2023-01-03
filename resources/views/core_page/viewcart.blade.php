@@ -1,16 +1,25 @@
+@extends('navbar.navbar')
 <link rel="stylesheet" href="{{ URL::asset('css/subhome.css') }}">
-<h1 class="header-catalogue">My Cart</h1>
-<h3>Total Price: {{$cart_items->total}}</h3>
-{{-- <div class="background"> --}}
-<div class="items-container">
+@section('content')
+    <h1 class="header-catalogue">My Cart</h1>
+    {{-- <h3>Total Price: {{$cart_details->total}}</h3> --}}
     {{-- <div class="background"> --}}
-    @foreach ($cart_items as $key => $item, $items as $key => $i)
-        <div class="item-box">
-            <img src="{{ URL::asset($item->image) }}" alt="{{ $item->name }} image">
-            <h2>{{ $item->name }}</h2>
-            <h3>Rp{{ $item->price }}</h3>
-            <a class="btn" href="home/item_details/{{ $item->id }}">More Detail</a>
-        </div>
-    @endforeach
-</div>
-{{ $itemdetails->links() }}
+    <div class="items-container">
+        @php
+            $i = 0
+        @endphp
+        @foreach ($cart_details as $cd)
+            <div class="item-box">
+                <img src="{{ URL::asset($items[$i]->image) }}" alt="{{ $items[$i]->name }} image">
+                <h5>{{ $items[$i]->name }}</h5>
+                Rp{{ $items[$i]->price }}
+                {{ $cd->quantity }}
+                <a class="btn" href="editcart/{{ $items[$i]->id }}">Edit Cart</a>
+                <a class="btn" href="viewcart/{{ $items[$i]->id }}">Remove from Cart</a>
+            </div>
+            @php
+                $i++
+            @endphp
+        @endforeach
+    </div>
+@endsection
