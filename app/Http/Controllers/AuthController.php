@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Models\maiBoutique;
-=======
 use App\Models\usercredential;
->>>>>>> d0a0a86ee0d6f74327a001e913484c6a7acb5f19
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
