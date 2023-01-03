@@ -7,7 +7,7 @@
         {{-- <h3>Total Price: Rptotal_price</h3>
         <button class="btn">Check Out (total_quantity)</button> --}}
         <h3>Total Price: Rp{{ $total }}</h3>
-        <a class="btn" href="/viewcart/checkOut">Check Out</a>
+        <a class="btn" href="/viewcart/checkOut">Check Out ({{$count}})</a>
     </div>
     {{-- <div class="background"> --}}
     <div class="items-container">

@@ -127,7 +127,7 @@ class AuthController extends Controller
                 'phone_number' => $request->phone_number,
                 'address' => $request->address
             ]);
-            return redirect('home');
+            return redirect('profile');
         }
     }
 
@@ -159,7 +159,7 @@ class AuthController extends Controller
                     'unauthorized' => 'Password does not match'
                 ]);
             }
-            return redirect('home');
+            return redirect('profile');
         }
         // return redirect()->back();
     }

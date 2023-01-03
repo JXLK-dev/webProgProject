@@ -26,7 +26,7 @@ class CartController extends Controller
             'quantity' => 'Quantity'
         );
         $rules = array(
-            'quantity' => 'required|min: 1|max: ' . $product->stock
+            'quantity' => 'required|numeric|min: 1|max: ' . $product->stock
         );
         $message = [
             'min' => 'Quantity must be more than 0',
