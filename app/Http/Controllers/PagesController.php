@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Models\Item_Details;
-use App\Models\maiBoutique;
-=======
 use App\Models\itemdetail;
->>>>>>> d0a0a86ee0d6f74327a001e913484c6a7acb5f19
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -35,13 +30,8 @@ class PagesController extends Controller
     }
     public function Home()
     {
-<<<<<<< HEAD
-        $item_details = Item_Details::paginate(8);
-        return view('core_page/home', ['item_details' => $item_details]);
-=======
-        $itemdetails = itemdetail::all();
+        $itemdetails = itemdetail::paginate(8);
         return view('core_page/home', ['itemdetails' => $itemdetails]);
->>>>>>> d0a0a86ee0d6f74327a001e913484c6a7acb5f19
     }
     public function Search(Request $request)
     {
