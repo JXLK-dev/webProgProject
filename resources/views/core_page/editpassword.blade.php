@@ -34,7 +34,7 @@
                         <h3>{{ $errors->first('address') }}</h3>
                     @endif
                     <div id="back">
-                        <button type="submit" class="edit-button" id="login">Update</button>
+                        <button type="submit" class="edit-button">Update</button>
                     </div>
                 </form>
             </div>

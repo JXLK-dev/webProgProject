@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use ItemDetails;
 
+use function PHPUnit\Framework\isNull;
+
 class ItemController extends Controller
 {
     //
@@ -58,6 +60,31 @@ class ItemController extends Controller
             ]);
             return redirect()->back()->with('success', 'Item added successfully.');
         }
+    }
+
+    public function viewcart(){
+        return view('core_page.viewcart');
+    }
+
+    public function addToCart(Request $request){
+        $id = $request->route('product_id');
+        $qty = $request->quantity;
+        $product = Item_Details::where('id', $id)->first();
+        $user_id = Auth::id();
+        $cart = Cart::where('user_id', $user_id)->where('item_id', $id)->first();
+        if(isNull($cart)){
+            Cart::insert([
+                'user_id' => $user_id,
+                'item_id' => $id,
+                'quantity' => $qty
+            ]);
+        }
+        else{
+            Cart::where('user_id', $user_id)->where('item_id', $id)->first()->update([
+                'quantity' => $cart->quantity+$qty
+            ]);
+        }
+        return redirect()->back()->with('success', 'Added to cart');
     }
 
     public function delete(Request $request){

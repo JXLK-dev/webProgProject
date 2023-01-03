@@ -118,8 +118,7 @@ class AuthController extends Controller
             return redirect()->back()->withErrors($validated)->withInput();
         }
         else {
-            return 'awooga';
-            $update=maiBoutique::where('id', Auth::id())->update([
+            $update=maiBoutique::where('id', Auth::id())->first->update([
                 'username' => $request->username,
                 'email' => $request->email,
                 'phone' => $request->phone,

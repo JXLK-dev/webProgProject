@@ -1,0 +1,4 @@
+{{$product->id}}
+
+{{$product->name}}
+
