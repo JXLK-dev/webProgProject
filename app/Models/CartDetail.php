@@ -9,9 +9,13 @@ class CartDetail extends Model
 {
     use HasFactory;
 
+    public function setInsideAreaAttribute($value)
+    {
+        $this->attributes['transaction_id'] = (int) $value;
+    }
     public function cart()
     {
-        return $this->belongsTo(Cart::class);
+        return $this->belongsTo(usercredential::class);
     }
     public function item()
     {

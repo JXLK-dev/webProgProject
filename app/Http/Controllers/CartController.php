@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\cart_detail;
+use App\Models\CartDetail;
 use App\Models\itemdetail;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -33,30 +36,22 @@ class CartController extends Controller
         if ($validated->fails()) {
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            Cart::insert(
-                [
-                    Auth::user()->id
-
-                ]
-            );
-            return redirect()->back()->withErrors($request->quantity)->withInput();
-        }
-        $request->validate([
-            'quantity' => 'required'
-        ]);
-        $validate = Validator::make(
-            $request->all(),
-            [
-                'quantity' => 'required|min:1|max:' . $product->stock,
-            ],
-            [
-                'quantity.required' => 'Quantity must be filled.',
-                'quantity.min' => 'Quantity must at least one.',
-                'quantity.max' => 'Quantity must not exceed available stock'
-            ]
-        );
-        if ($validate->fails()) {
-            return back()->withErrors($validate)->withInput();
+            if (CartDetail::where('user_id', Auth::id())->first() == null) {
+                $insert = new CartDetail;
+                $insert->user_id = Auth::id();
+                $insert->transaction_id = Auth::user()->number_of_transaction + 1;
+                $insert->item_id = $product_id;
+                $insert->quantity = $request->quantity;
+                $insert->save();
+            } else {
+                $insertExist = CartDetail::where([
+                    'user_id', Auth::id(),
+                    'transaction_id', Auth::user()->number_of_transaction
+                ]);
+                $insertExist->quantity = $insertExist->quantity + $request->quantity;
+                $insertExist->save();
+            }
+            return redirect()->to('home');
         }
     }
 }
