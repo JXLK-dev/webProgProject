@@ -31,13 +31,17 @@ class TransactionController extends Controller
         foreach ($cart as $clothes) {
             $total = $total + ($clothes->quantity * $clothes->item->price);
         }
+        if($total == 0){
+            return redirect()->back();
+        }
         $insert = new TransactionDetail();
         $insert->user_id = Auth::id();
         $insert->transaction_id = Auth::user()->number_of_transaction + 1;
-        $insert->date = Carbon::now()->format('d-m-Y');
+        $insert->date = Carbon::now(7)->format('d-m-Y');
         $insert->total = $total;
         $insert->save();
-        $checkTransaction = usercredential::find(Auth::id())->get()[0]->number_of_transaction;
+        // $checkTransaction = usercredential::find(Auth::id())->get()[0]->number_of_transaction;
+        $checkTransaction = Auth::user()->number_of_transaction;
         $update = usercredential::find(Auth::id());
         $update->number_of_transaction = $checkTransaction + 1;
         $update->save();
