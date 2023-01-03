@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\itemdetail;
+use App\Models\Transaction;
+use App\Models\TransactionDetail;
 use App\Models\usercredential;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +53,9 @@ class PagesController extends Controller
     }
     public function History()
     {
-        return view('core_page/history');
+        $transactions = Transaction::where('user_id', Auth::user());
+        $transactiondetails = TransactionDetail::where('id', $transactions->id);
+        return view('core_page/history')->with(compact('transactiondetails'));
     }
     public function Profile()
     {
