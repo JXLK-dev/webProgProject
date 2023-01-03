@@ -1,0 +1,25 @@
+.searchbar{
+    margin:auto;
+    margin-top: 20px;
+    position:relative;
+    padding: 15px;
+    height:10px;
+    width:50%;
+    border-radius: 20px;
+    border:2px solid black;
+}
+
+.searchbar::placeholder{
+    color:#35455d83;
+}
+
+.searchbar:focus::placeholder{
+    visibility: hidden;
+}
+
+.search{
+    background:none;
+    border:none;
+    position:absolute;
+    visibility: hidden;
+}

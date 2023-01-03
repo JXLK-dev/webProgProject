@@ -37,3 +37,4 @@ function onSubmission() {
     registerAccount.style.opacity = '0';
 
 }
+

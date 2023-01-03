@@ -63,4 +63,12 @@ class PagesController extends Controller
         $user = maiBoutique::where('id', $id)->first();
         return view('core_page/editprofile')->with(compact('user'));
     }
+
+    public function editpassword(Request $request)
+    {
+        // $id = Auth::id();
+        $id = $request->route('user_id');
+        $user = maiBoutique::where('id', $id)->first();
+        return view('core_page/editpassword')->with(compact('user'));
+    }
 }

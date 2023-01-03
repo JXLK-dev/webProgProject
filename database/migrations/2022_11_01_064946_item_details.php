@@ -32,5 +32,6 @@ class ItemDetails extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('item_details');
     }
 }

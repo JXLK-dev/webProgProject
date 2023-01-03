@@ -4,21 +4,36 @@
 
 h2 {
     width: 40vh;
-    margin-top: 18vh;
-    font-size: 70px;
+    font-size: 48px;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
+    margin:0px auto;
     text-align: center;
     background-color: white;
     z-index: 1;
+    top:-7%;
     left: 0;
     right: 0;
+    border:2px solid black;
+    border-radius: 10px;
+}
+
+.back{
+    position: absolute;
+    top: 95%;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+}
+
+.add-button{
+    padding:10px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .Add-template {
-    /* background-color: red; */
-    border: 2px solid black;
     width: 90vh;
     margin-top: 25vh;
     margin-left: auto;
@@ -31,40 +46,49 @@ h2 {
 }
 
 form {
-    margin-top: 50px;
     position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.input-container{
+    margin: 50px 20px;
+    display: flex;
+    height:80%;
 }
 
 .text-input {
     width: 50%;
     margin-left: 20px;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    height:100%;
 }
 
 .input-add {
-    display: block;
     border: none;
     border-bottom: 2px solid black;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 85%;
-    font-size: 25px;
-    margin-bottom: 3vh;
+    font-size: 15px;
+    height:50%;
+    background:none;
 }
-
-
 
 .input-label {
     font-weight: bold;
     font-size: 20px;
+    height:20%;
+    margin: 10px 0px;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"] {
     font-size: 25px;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="text"]:focus {
     outline: none;
     font-size: 25px;
     border: none;
@@ -89,34 +113,25 @@ input[type="password"]:focus {
     }
 }
 
-.add-button {
+.btn {
     border: 2px solid black;
     font-family: Quicksand;
     background-color: white;
-    border-radius: 20px;
-    height: 60px;
+    border-radius: 10px;
     width: auto;
-    position: relative;
-    font-size: 25px;
-    font-weight: bold;
     top: 0px;
     text-decoration: none;
     color: black;
     transition: 0.5s;
 }
 
-.add-button:hover {
+.btn:hover {
     box-shadow: 5px 5px #888888;
     text-decoration: none;
     background-color: black;
     color: white;
     transition: 0.5s;
     cursor: pointer;
-}
-
-.back {
-    text-align: center;
-    width: 90%;
 }
 
 @keyframes error-message {
@@ -147,10 +162,9 @@ h1 {
 .image {
     text-align: center;
     width: 50%;
-    top: 0;
-    position: absolute;
-    right: 20px;
-    display: block;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
 }
 
 
@@ -158,13 +172,29 @@ input[type="file"] {
     margin-top: 20px;
     margin-right: auto;
     margin-left: auto;
-    width: 15vh;
+    width: 115px;
     cursor: pointer;
     display: block;
+    font-size: large;
+}
+
+input[type="file"]::-webkit-file-upload-button{
+    visibility: hidden;
+}
+
+input[type="file"] label{
+    visibility: hidden;
+}
+
+input[type="file"]::before{
+    padding:10px;
+    content: 'Choose File';
+    text-align: center;
+    display: inline-block;
 }
 
 #image {
     margin-top: 20px;
-    width: 50px;
+    width: 240px;
     border: 5px solid black;
 }

@@ -67,9 +67,11 @@
 }
 
 .item-detail-box{
-    width:60%;
+    width:70%;
     margin:auto;
-    /* margin-top: 300px; */
+    position:absolute;
+    top:100px;
+    left:15%;
     border:1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
     padding:10px;
@@ -79,6 +81,7 @@
 .item-detail-box img{
     align-self: flex-start;
     margin:20px;
+    width:50%;
 }
 
 .quantity-wrapper{
@@ -103,14 +106,14 @@
     font-family: Quicksand;
     border-radius: 20px;
     font-size: 20px;
-    width:120px;
-    height:30px;
+    padding:10px 20px;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
     transition: 0.5s;
     display: flex;
     justify-content: center;
+    background-color: white;
 }
 
 .btn:hover{
@@ -121,6 +124,76 @@
     transition: 0.5s;
     cursor: pointer;
 }
+
+.del{
+    height:auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    color:white;
+    transition:0.5s;
+}
+
+.back{
+    position:absolute;
+    top:87%;
+    left:88%;
+}
+
+.popup{
+    position:fixed;
+    visibility: hidden;
+    opacity:0;
+    transition:1s;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+}
+
+.show{
+    visibility: visible;
+    opacity:1;
+    transition:1s;
+}
+
+.center-popup{
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-align: center;
+    width:200px;
+    border:5px solid black;
+    background-color: white;
+}
+
+.popup-header{
+    display: flex;
+    padding:5px;
+    border-bottom: 5px solid black;
+    border-radius: 5px 5px 0px 0px;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.popup .btn{
+    margin:15px;
+}
+
+.x{
+    background: none;
+    border: none;
+    font-size: 36px;
+}
+
+.x:hover{
+    cursor: pointer;
+}
+
 
 .pagination{
     list-style: none;

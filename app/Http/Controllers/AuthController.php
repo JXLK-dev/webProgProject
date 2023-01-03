@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\maiBoutique;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -20,6 +21,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
         return redirect('/signin');
     }
+
     public function loginCredential(Request $request)
     {
         // $data = $request->safe()->only(['email', 'password']);
@@ -89,5 +91,50 @@ class AuthController extends Controller
             return redirect('/signin');
             // sleep(1);
         }
+    }
+
+    public function editprofile(Request $request)
+    {
+        $attributes = array(
+            'username' => 'Username',
+            'email' => 'Email',
+            'phone' => 'Phone Number',
+            'address' => 'Address'
+        );
+        $rules = array(
+            'username' => 'required|min: 5|max: 20|unique:mai_boutiques,username',
+            'email' => 'required|min: 5|email|unique:mai_boutiques,email',
+            'phone' => 'required|numeric|digits_between:10,13',
+            'address' => 'required|min: 5'
+        );
+        $message = [
+            'min' => 'minimum 5 characters',
+            'max' => 'maximum 20 characters',
+            'required' => ':attribute could not be empty',
+            'unique' => ':attribute is already taken'
+        ];
+        $validated = Validator::make($request->all(), $rules, $message, $attributes);
+        if ($validated->fails()) {
+            return redirect()->back()->withErrors($validated)->withInput();
+        }
+        else {
+            return 'awooga';
+            $update=maiBoutique::where('id', Auth::id())->update([
+                'username' => $request->username,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address
+            ]);
+            if($update) return 'success';
+            else return redirect('home');
+        }
+    }
+
+    public function editpassword(){
+        $rules = array(
+            'oldpassword' => 'required',
+            'newpassword' => 'required|min:5|max:20'
+        );
+        return redirect()->back();
     }
 }

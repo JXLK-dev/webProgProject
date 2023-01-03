@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ URL::asset('css/navbar.css') }}">
 </head>
 
-<body>
     <div class="navigation-bar">
         <img id="logo" src="{{ URL::asset('asset_image/MaiBoutique_black.png') }}" alt="">
         <ul class="navbar-left">
@@ -21,7 +20,7 @@
                 </a></li>
             @if (Auth::user()->role != 'admin')
                 <li style="@if (Request::path() == 'cart') font-weight:bold; font-size:20px; margin-top:28px; @endif">
-                    <a href="{{ url('cart') }}">Cart</a>
+                    <a href="{{ url('viewcart') }}">Cart</a>
                 </li>
                 <li style="@if (Request::path() == 'history') font-weight:bold; font-size:20px; margin-top:28px; @endif">
                     <a href="{{ url('history') }}">
@@ -44,6 +43,7 @@
             </li>
         </ul>
     </div>
+<body>
     @yield('content')
 </body>
 
