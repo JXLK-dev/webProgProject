@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SubPageController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/search', [PagesController::class, 'search']);
     Route::get('/viewcart', [ItemController::class, 'viewcart']);
-    Route::get('/history', [PagesController::class, 'history']);
+    Route::get('/history', [TransactionController::class, 'history']);
     Route::get('/profile', [PagesController::class, 'profile']);
     Route::get('/additem', [PagesController::class, 'additem']);
     Route::post('/additem', [ItemController::class, 'addItem']);
@@ -39,6 +40,6 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/home/{item_id}', [ItemController::class, 'delete']);
     Route::get('/editpassword', [PagesController::class, 'editpassword']);
     Route::post('/editpassword', [AuthController::class, 'editpassword']);
-    Route::get('/editcart/{product_id}', [PagesController::class], 'editcart');
+    Route::get('/editcart', [PagesController::class, 'editcart']);
     Route::get('/viewcart/{product_id}', [PagesController::class], 'viewcart');
 });
