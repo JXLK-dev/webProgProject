@@ -41,5 +41,5 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/editpassword', [PagesController::class, 'editpassword']);
     Route::post('/editpassword', [AuthController::class, 'editpassword']);
     Route::get('/editcart', [PagesController::class, 'editcart']);
-    Route::get('/viewcart/{product_id}', [PagesController::class], 'viewcart');
+    Route::get('/viewcart', [CartController::class, 'fetchData']);
 });

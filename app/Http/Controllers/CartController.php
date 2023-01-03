@@ -7,6 +7,7 @@ use App\Models\cart_detail;
 use App\Models\CartDetail;
 use App\Models\itemdetail;
 use App\Models\Transaction;
+use App\Models\usercredential;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -61,5 +62,14 @@ class CartController extends Controller
             }
             return redirect()->to('home');
         }
+    }
+    public function fetchData()
+    {
+        $cart = CartDetail::where('id', Auth::id())->where(
+            'transaction_id',
+            Auth::user()->number_of_transaction + 1
+        )->get()[0];
+        dd($cart);
+        return view('core_page.viewcart')->with(compact('cart'));
     }
 }
