@@ -37,6 +37,6 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/editprofile', [PagesController::class, 'editprofile']);
     Route::post('/editprofile', [AuthController::class, 'editprofile']);
     Route::get('/home/{item_id}', [ItemController::class, 'delete']);
-    Route::get('/editpassword', [PagesController::class], 'editpassword');
-    Route::post('/editpassword', [AuthController::class], 'editpassword');
+    Route::get('/editpassword', [PagesController::class, 'editpassword']);
+    Route::post('/editpassword', [AuthController::class, 'editpassword']);
 });

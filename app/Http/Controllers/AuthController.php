@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -101,13 +102,13 @@ class AuthController extends Controller
         $attributes = array(
             'username' => 'Username',
             'email' => 'Email',
-            'phone' => 'Phone Number',
+            'phone_number' => 'Phone Number',
             'address' => 'Address'
         );
         $rules = array(
-            'username' => 'required|min: 5|max: 20|unique:mai_boutiques,username',
-            'email' => 'required|min: 5|email|unique:mai_boutiques,email',
-            'phone' => 'required|numeric|digits_between:10,13',
+            'username' => 'required|min: 5|max: 20|unique:usercredentials,username',
+            'email' => 'required|min: 5|email|unique:usercredentials,email',
+            'phone_number' => 'required|numeric|digits_between:10,13',
             'address' => 'required|min: 5'
         );
         $message = [
@@ -120,23 +121,46 @@ class AuthController extends Controller
         if ($validated->fails()) {
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            $update = usercredential::where('id', Auth::id())->first->update([
+            $update = usercredential::where('id', Auth::id())->update([
                 'username' => $request->username,
                 'email' => $request->email,
-                'phone' => $request->phone,
+                'phone_number' => $request->phone_number,
                 'address' => $request->address
             ]);
-            if ($update) return 'success';
-            else return redirect('home');
+            return redirect('home');
         }
     }
 
-    public function editpassword()
+    public function editpassword(Request $request)
     {
-        $rules = array(
-            'oldpassword' => 'required',
-            'newpassword' => 'required|min:5|max:20'
+        $attributes = array(
+            'oldpassword' => 'Old password',
+            'newpassword' => 'New Password'
         );
-        return redirect()->back();
+        $rules = array(
+            'oldpassword' => 'required|min: 5|max: 20',
+            'newpassword' => 'required|min: 5|max: 20',
+        );
+        $message = [
+            'min' => 'minimum 5 characters',
+            'max' => 'maximum 20 characters',
+            'required' => ':attribute could not be empty',
+        ];
+        $validated = Validator::make($request->all(), $rules, $message, $attributes);
+        if ($validated->fails()) {
+            return redirect()->back()->withErrors($validated)->withInput();
+        } else {
+            if (Hash::check($request->oldpassword, Auth::user()->password, [])) {
+                $update = usercredential::find(Auth::id());
+                $update->password = bcrypt($request->newpassword);
+                $update->save();
+            } else {
+                return Redirect::back()->withErrors([
+                    'unauthorized' => 'Password does not match'
+                ]);
+            }
+            return redirect('home');
+        }
+        // return redirect()->back();
     }
 }
