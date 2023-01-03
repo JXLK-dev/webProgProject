@@ -11,9 +11,10 @@ class usercredential extends Authenticatable
 {
     use HasFactory;
 
-    protected $table='mai_boutiques';
+    protected $table = 'usercredentials';
 
-    public function cart(){
+    public function cart()
+    {
         return $this->hasOne(Cart::class);
     }
 }

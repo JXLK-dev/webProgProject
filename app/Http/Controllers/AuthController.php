@@ -119,20 +119,20 @@ class AuthController extends Controller
         $validated = Validator::make($request->all(), $rules, $message, $attributes);
         if ($validated->fails()) {
             return redirect()->back()->withErrors($validated)->withInput();
-        }
-        else {
-            $update=maiBoutique::where('id', Auth::id())->first->update([
+        } else {
+            $update = usercredential::where('id', Auth::id())->first->update([
                 'username' => $request->username,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address
             ]);
-            if($update) return 'success';
+            if ($update) return 'success';
             else return redirect('home');
         }
     }
 
-    public function editpassword(){
+    public function editpassword()
+    {
         $rules = array(
             'oldpassword' => 'required',
             'newpassword' => 'required|min:5|max:20'
