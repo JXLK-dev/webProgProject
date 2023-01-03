@@ -84,6 +84,18 @@ class CartController extends Controller
             'transaction_id',
             Auth::user()->number_of_transaction + 1
         )->get();
-        return view('core_page.viewcart')->with(compact('cart'));
+        $total = 0;
+        foreach ($cart as $clothes) {
+            $total = $total + ($clothes->quantity * $clothes->item->price);
+        }
+        return view('core_page.viewcart')->with(compact('cart'))->with(compact('total'));
     }
+    // public function eraseData()
+    // {
+    //     CartDetail::where('user_id', Auth::id())->where(
+    //         'transaction_id',
+    //         Auth::user()->number_of_transaction + 1
+    //     )->delete();
+    //     return redirect()->to('/history');
+    // }
 }

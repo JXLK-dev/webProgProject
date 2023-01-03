@@ -42,4 +42,6 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::post('/editpassword', [AuthController::class, 'editpassword']);
     Route::get('/editcart', [PagesController::class, 'editcart']);
     Route::get('/viewcart', [CartController::class, 'fetchData']);
+    Route::get('/viewcart/checkOut', [TransactionController::class, 'saveData']);
+    // Route::get('/viewcart/checkOut', [CartController::class, 'eraseData']);
 });
