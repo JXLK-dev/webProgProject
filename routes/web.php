@@ -40,6 +40,8 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/home/{item_id}', [ItemController::class, 'delete']);
     Route::get('/editpassword', [PagesController::class, 'editpassword']);
     Route::post('/editpassword', [AuthController::class, 'editpassword']);
-    Route::get('/editcart', [PagesController::class, 'editcart']);
+    Route::get('/editcart/{product_id}', [PagesController::class, 'editcart']);
     Route::get('/viewcart', [CartController::class, 'fetchData']);
+    Route::post('/editcart/{product_id}', [CartController::class, 'updatecart']);
+    Route::get('/viewcart/{product_id}', [CartController::class, 'deletecart']);
 });

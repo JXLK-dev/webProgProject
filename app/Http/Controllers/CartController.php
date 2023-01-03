@@ -63,12 +63,60 @@ class CartController extends Controller
             return redirect()->to('home');
         }
     }
+
     public function fetchData()
     {
         $cart = CartDetail::where('user_id', Auth::id())->where(
             'transaction_id',
             Auth::user()->number_of_transaction + 1
         )->get();
-        return view('core_page.viewcart')->with(compact('cart'));
+        $count = CartDetail::where('user_id', Auth::id())->where(
+            'transaction_id',
+            Auth::user()->number_of_transaction + 1
+        )->sum('quantity');
+        // $total = itemdetail::whereBelongsTo(CartDetail::where('user_id', Auth::id())->where(
+        //     'transaction_id',
+        //     Auth::user()->number_of_transaction + 1
+        // ))->sum('price');
+        return view('core_page.viewcart')->with(compact('cart'))->with(compact('count'));
     }
+
+    public function updatecart(Request $request, $product_id){
+        $product = itemdetail::where('id', $product_id)->first();
+        $attributes = array(
+            'quantity' => 'Quantity'
+        );
+        $rules = array(
+            'quantity' => 'required|numeric|min: 1|max: ' . $product->stock
+        );
+        $message = [
+            'min' => 'Quantity must be more than 0',
+            'max' => 'Quantity can not exceed the available stock',
+            'required' => 'Quantity must be filled'
+        ];
+        $validated = Validator::make($request->all(), $rules, $message, $attributes);
+        if ($validated->fails()) {
+            return redirect()->back()->withErrors($validated)->withInput();
+        } else {
+            $cart = CartDetail::where(
+                'user_id',
+                Auth::id()
+            )->where(
+                'transaction_id',
+                Auth::user()->number_of_transaction + 1
+            )->where(
+                'item_id',
+                $product_id
+            )->update([
+                'quantity' => $request->quantity
+            ]);
+            return redirect()->to('viewcart');
+        }
+    }
+
+    public function deletecart(Request $request, $product_id){
+        CartDetail::where('item_id', $product_id)->delete();
+        return redirect('/viewcart');
+    }
+
 }

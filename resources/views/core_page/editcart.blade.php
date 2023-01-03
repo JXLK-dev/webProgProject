@@ -8,18 +8,18 @@
             {{-- <img src="{{ URL::asset($item->image) }}" alt="{{ $item->name }} image"> --}}
             <img src="https://lzd-img-global.slatic.net/g/p/2f8ef9e37811c10f67c14f83eb3230b9.jpg_720x720q80.jpg_.webp">
             <div class="details-container">
-                {{-- <h2>{{ $item->name }}</h2>
-                <h3>Rp{{ $item->price }}</h3>--}}
-                <h2>Kemeja</h2>
-                <h3>Rp299999</h3>
+                <h2>{{ $product->name }}</h2>
+                <h3>Rp{{ $product->price }}</h3>
+                {{-- <h2>Kemeja</h2>
+                <h3>Rp299999</h3> --}}
 
                 <h4>Product Detail</h4>
-                {{-- <p>{{ $item->description }}</p> --}}
-                <p>deskripsi produk</p>
+                <p>{{ $product->description }}</p>
+                {{-- <p>deskripsi produk</p> --}}
 
                 <hr>
                 <div class="btn-group">
-                    <form id="updatecart" action="/editcart" onsubmit="" method="POST">
+                    <form id="updatecart" action="/editcart/{{ $product->id }}" onsubmit="" method="POST">
                         @csrf
                         <div class="quantity-wrapper">
                             <label for="quantity">

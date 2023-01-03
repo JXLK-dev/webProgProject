@@ -66,8 +66,9 @@ class PagesController extends Controller
         return view('core_page/editpassword')->with(compact('user'));
     }
 
-    public function editcart()
+    public function editcart(Request $request, $product_id)
     {
-        return view('core_page/editcart');
+        $product = itemdetail::where('id', $product_id)->first();
+        return view('core_page/editcart')->with(compact('product'));
     }
 }
