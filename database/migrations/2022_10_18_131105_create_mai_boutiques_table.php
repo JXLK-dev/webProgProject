@@ -21,6 +21,7 @@ class CreateMaiBoutiquesTable extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->string('role')->default('member');
+            $table->integer('number_of_transaction')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
