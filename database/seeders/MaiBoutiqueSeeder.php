@@ -17,7 +17,7 @@ class MaiBoutiqueSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('mai_boutiques')->insert([
+        DB::table('usercredentials')->insert([
             'username' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),

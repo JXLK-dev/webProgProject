@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\maiBoutique::class,
+            'model' => App\Models\usercredential::class,
         ],
 
         // 'users' => [

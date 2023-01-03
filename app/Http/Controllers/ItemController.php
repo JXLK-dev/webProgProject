@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Models\Item_Details;
+=======
+use App\Models\itemdetail;
+>>>>>>> d0a0a86ee0d6f74327a001e913484c6a7acb5f19
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -30,7 +34,7 @@ class ItemController extends Controller
             'CImage' => 'Photo'
         );
         $rules = array(
-            'CName' => 'required|min: 5|max: 20|unique:item_details,name',
+            'CName' => 'required|min: 5|max: 20|unique:itemdetails,name',
             'CDesc' => 'required|min: 5',
             'CPrice' => 'required|integer|min: 1000',
             'CStock' => 'required|integer|min: 1',
@@ -50,6 +54,7 @@ class ItemController extends Controller
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
             $ext = $request->file('CImage')->extension();
+<<<<<<< HEAD
             Storage::putFileAs('/public/images', $request->CImage, $request->CName . "_image_" . $ext);
             Item_Details::insert([
                 'name' => $request->CName,
@@ -59,6 +64,17 @@ class ItemController extends Controller
                 'image' => 'storage/images/' . $request->CName . '_image_' . $ext
             ]);
             return redirect()->back()->with('success', 'Item added successfully.');
+=======
+            Storage::putFileAs('/public/images', $request->CImage, $request->CName . "_image_." . $ext);
+            $itemdetails = new itemdetail;
+            $itemdetails->name = $request->CName;
+            $itemdetails->description = $request->CDesc;
+            $itemdetails->price = $request->CPrice;
+            $itemdetails->stock = $request->CStock;
+            $itemdetails->image = 'storage/images/'  . $request->CName . '_image_.' . $ext;
+            $itemdetails->save();
+            return redirect()->back();
+>>>>>>> d0a0a86ee0d6f74327a001e913484c6a7acb5f19
         }
     }
 

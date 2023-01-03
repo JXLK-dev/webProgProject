@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Models\maiBoutique;
+=======
+use App\Models\usercredential;
+>>>>>>> d0a0a86ee0d6f74327a001e913484c6a7acb5f19
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -63,8 +67,8 @@ class AuthController extends Controller
     public function registerCredential(Request $request)
     {
         $rules = array(
-            'username' => 'required|max:20|min:5|unique:mai_boutiques,username',
-            'email' => 'required|email:rfc,dns|unique:mai_boutiques,email',
+            'username' => 'required|max:20|min:5|unique:usercredentials,username',
+            'email' => 'required|email:rfc,dns|unique:usercredentials,email',
             'password' => 'required|max:20|min:5',
             'phone_number' => 'required|min:10|max:13',
             'address' => 'required|min:5'
@@ -83,10 +87,13 @@ class AuthController extends Controller
             usleep(1000 * 1000 - 100000);
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            DB::insert(
-                'insert into mai_boutiques (username,email,password,phone_number,address) values (?, ?, ?, ?, ?)',
-                [$request->username, $request->email, bcrypt($request->password), $request->phone_number, $request->address]
-            );
+            $credential = new usercredential;
+            $credential->username = $request->username;
+            $credential->email = $request->email;
+            $credential->password = bcrypt($request->password);
+            $credential->phone_number = $request->phone_number;
+            $credential->address = $request->address;
+            $credential->save();
             sleep(0.2);
             return redirect('/signin');
             // sleep(1);

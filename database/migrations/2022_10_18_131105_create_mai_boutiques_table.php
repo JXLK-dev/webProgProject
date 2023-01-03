@@ -13,7 +13,7 @@ class CreateMaiBoutiquesTable extends Migration
      */
     public function up()
     {
-        Schema::create('mai_boutiques', function (Blueprint $table) {
+        Schema::create('usercredentials', function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
             $table->string('email')->unique();
