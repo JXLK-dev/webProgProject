@@ -15,10 +15,11 @@ class usercredential extends Authenticatable
 
     public function cart()
     {
-        return $this->hasOne(Cart::class, 'user_id');
+        return $this->hasMany(CartDetail::class, 'user_id');
     }
 
-    public function transaction(){
+    public function transaction()
+    {
         return $this->hasMany(Transaction::class, 'user_id');
     }
 }

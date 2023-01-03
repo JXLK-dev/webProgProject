@@ -45,20 +45,35 @@ class CartController extends Controller
                 $insert->quantity = $request->quantity;
                 $insert->save();
             } else {
-                $qty = CartDetail::where(
+                if (CartDetail::where(
                     'user_id',
                     Auth::id()
                 )->where(
                     'transaction_id',
                     Auth::user()->number_of_transaction + 1
-                )->get();
+                )->get()[0]->item_id == $product_id) {
+                    $qty = CartDetail::where(
+                        'user_id',
+                        Auth::id()
+                    )->where(
+                        'transaction_id',
+                        Auth::user()->number_of_transaction + 1
+                    )->get();
 
-                $insertExist = CartDetail::where(
-                    'user_id',
-                    Auth::id()
-                )->where('transaction_id', Auth::user()->number_of_transaction + 1)->update([
-                    'quantity' => $qty[0]->quantity + $request->quantity
-                ]);
+                    CartDetail::where(
+                        'user_id',
+                        Auth::id()
+                    )->where('transaction_id', Auth::user()->number_of_transaction + 1)->update([
+                        'quantity' => $qty[0]->quantity + $request->quantity
+                    ]);
+                } else {
+                    $insert = new CartDetail;
+                    $insert->user_id = Auth::id();
+                    $insert->transaction_id = Auth::user()->number_of_transaction + 1;
+                    $insert->item_id = $product_id;
+                    $insert->quantity = $request->quantity;
+                    $insert->save();
+                }
             }
             return redirect()->to('home');
         }
@@ -74,11 +89,11 @@ class CartController extends Controller
             'transaction_id',
             Auth::user()->number_of_transaction + 1
         )->sum('quantity');
-        // $total = itemdetail::whereBelongsTo(CartDetail::where('user_id', Auth::id())->where(
-        //     'transaction_id',
-        //     Auth::user()->number_of_transaction + 1
-        // ))->sum('price');
-        return view('core_page.viewcart')->with(compact('cart'))->with(compact('count'));
+        $total = 0;
+        foreach ($cart as $clothes) {
+            $total = $total + ($clothes->quantity * $clothes->item->price);
+        }
+        return view('core_page.viewcart')->with(compact('cart'))->with(compact('total'))->with(compact('count'));
     }
 
     public function updatecart(Request $request, $product_id){
@@ -119,4 +134,12 @@ class CartController extends Controller
         return redirect('/viewcart');
     }
 
+    // public function eraseData()
+    // {
+    //     CartDetail::where('user_id', Auth::id())->where(
+    //         'transaction_id',
+    //         Auth::user()->number_of_transaction + 1
+    //     )->delete();
+    //     return redirect()->to('/history');
+    // }
 }

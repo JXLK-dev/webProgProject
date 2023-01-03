@@ -4,10 +4,10 @@
     <h1 class="header-catalogue">My Cart</h1>
     {{-- <h3>Total Price: {{$cart_details->total}}</h3> --}}
     <div class="checkout">
-        {{-- <h3>Total Price: Rptotal_price</h3> --}}
-        <button class="btn">Check Out ({{ $count }})</button>
-        {{-- <h3>Total Price: Rp600000</h3>
-        <button class="btn">Check Out (4)</button> --}}
+        {{-- <h3>Total Price: Rptotal_price</h3>
+        <button class="btn">Check Out (total_quantity)</button> --}}
+        <h3>Total Price: Rp{{ $total }}</h3>
+        <a class="btn" href="/viewcart/checkOut">Check Out</a>
     </div>
     {{-- <div class="background"> --}}
     <div class="items-container">
