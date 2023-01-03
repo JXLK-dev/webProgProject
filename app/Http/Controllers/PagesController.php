@@ -59,7 +59,7 @@ class PagesController extends Controller
     public function editprofile(Request $request)
     {
         $id = $request->route('user_id');
-        $user = maiBoutique::where('id', $id)->first();
+        $user = usercredential::where('id', $id)->first();
         return view('core_page/editprofile')->with(compact('user'));
     }
 
@@ -67,7 +67,7 @@ class PagesController extends Controller
     {
         // $id = Auth::id();
         $id = $request->route('user_id');
-        $user = maiBoutique::where('id', $id)->first();
+        $user = usercredential::where('id', $id)->first();
         return view('core_page/editpassword')->with(compact('user'));
     }
 }

@@ -14,9 +14,9 @@ class CartDetails extends Migration
     public function up()
     {
         //
-        Schema::create('cart_details', function(Blueprint $table){
+        Schema::create('cart_details', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->references('id')->on('carts')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('item_id')->references('id')->on('item_details')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('item_id')->references('id')->on('itemdetails')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('quantity');
             $table->primary('id', 'item_id');
             $table->timestamps();
