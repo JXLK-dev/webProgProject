@@ -16,12 +16,12 @@ use function PHPUnit\Framework\isNull;
 class ItemController extends Controller
 {
     //
-    public function setAttributeNames(array $attributes)
-    {
-        $this->customAttributes = $attributes;
+    // public function setAttributeNames(array $attributes)
+    // {
+    //     $this->customAttributes = $attributes;
 
-        return $this;
-    }
+    //     return $this;
+    // }
     public function addItem(Request $request)
     {
         $attributes = array(
