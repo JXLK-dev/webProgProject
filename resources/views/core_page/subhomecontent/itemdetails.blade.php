@@ -19,12 +19,9 @@
                                 <h4>Quantity:</h4>
                             </label>
                             <input type="number" name="quantity" id="quantity">
-                            {{-- @if ($errors->has('CQuantity'))
-                            <p>{{$errors->first}}</p>
-                        @endif --}}
-                            @error('quantity')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @if ($errors->has('quantity'))
+                                <p>{{ $errors->first('quantity') }}</p>
+                            @endif
                         </div>
                         <button type="submit" class="btn">Add To Cart</button>
                     </form>
@@ -47,7 +44,7 @@
                     </div>
                 @endif
             </div>
-            <button type="button" class="btn back" onclick="history.back()">Back</button>
+            <a href="/home" class="btn back">Back</a>
         </div>
     </div>
     <script src="{{ URL::asset('js/popup.js') }}"></script>
