@@ -15,15 +15,11 @@ class CartController extends Controller
     //
 
 
-    public function addItem(Request $request)
+    public function addItem(Request $request, $product_id)
     {
-        $id = $request->route('product_id');
-        if (isNull($id)) {
-            return redirect()->back()->withErrors($id);
-        }
-        $product = itemdetail::where('id', $id)->first();
+        $product = itemdetail::where('id', $product_id)->first();
         $attributes = array(
-            'CQuantity' => 'quantity'
+            'quantity' => 'Quantity'
         );
         $rules = array(
             'quantity' => 'required|min: 1|max: ' . $product->stock
@@ -35,7 +31,6 @@ class CartController extends Controller
         ];
         $validated = Validator::make($request->all(), $rules, $message, $attributes);
         if ($validated->fails()) {
-            usleep(1000 * 1000 - 100000);
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
             Cart::insert(

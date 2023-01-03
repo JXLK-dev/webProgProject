@@ -19,12 +19,9 @@
                                 <h4>Quantity:</h4>
                             </label>
                             <input type="number" name="quantity" id="quantity">
-                            {{-- @if ($errors->has('CQuantity'))
-                            <p>{{$errors->first}}</p>
-                        @endif --}}
-                            @error('quantity')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            @if ($errors->has('quantity'))
+                                <p>{{ $errors->first('quantity') }}</p>
+                            @endif
                         </div>
                         <button type="submit" class="btn">Add To Cart</button>
                     </form>
