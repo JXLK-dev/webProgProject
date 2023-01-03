@@ -23,10 +23,6 @@ class TransactionController extends Controller
     }
     public function saveData()
     {
-        // $cart = CartDetail::where('user_id', Auth::id())->where(
-        //     'transaction_id',
-        //     Auth::user()->number_of_transaction + 1
-        // )->get();
         $cart = CartDetail::where('user_id', Auth::id())->where(
             'transaction_id',
             Auth::user()->number_of_transaction + 1
@@ -45,6 +41,6 @@ class TransactionController extends Controller
         $update = usercredential::find(Auth::id());
         $update->number_of_transaction = $checkTransaction + 1;
         $update->save();
-        return redirect()->to('/history');
+        return redirect('/history');
     }
 }

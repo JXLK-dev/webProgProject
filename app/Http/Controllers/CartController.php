@@ -37,7 +37,10 @@ class CartController extends Controller
         if ($validated->fails()) {
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            if (CartDetail::where('user_id', Auth::id())->first() == null) {
+            if (CartDetail::where('user_id', Auth::id())->where(
+                'transaction_id',
+                Auth::user()->number_of_transaction + 1
+            )->first() == null) {
                 $insert = new CartDetail;
                 $insert->user_id = Auth::id();
                 $insert->transaction_id = Auth::user()->number_of_transaction + 1;

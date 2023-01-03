@@ -9,14 +9,12 @@
                 <h2>{{ $tr->date }}</h2>
                 <ul class="item-list">
                     {{-- list item yang ada di dalam transaction --}}
-
                     @foreach ($cart as $detail)
                         @if ($detail->transaction_id == $tr->transaction_id)
                             <li>{{ $detail->quantity }} pc(s) {{ $detail->item->name }} Rp{{ $detail->item->price }}</li>
                         @endif
                     @endforeach
                 </ul>
-                {{-- <h3>Total Price Rp{{ total price }}</h3> --}}
                 <h3>Total Price Rp{{ $tr->total }}</h3>
             </div>
         @endforeach

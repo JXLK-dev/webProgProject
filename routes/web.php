@@ -44,6 +44,6 @@ Route::group(['middleware' => ['authentication']], function () {
     Route::get('/viewcart', [CartController::class, 'fetchData']);
     Route::post('/editcart/{product_id}', [CartController::class, 'updatecart']);
     Route::get('/viewcart/{product_id}', [CartController::class, 'deletecart']);
-    Route::get('/viewcart/checkOut', [TransactionController::class, 'saveData']);
+    Route::get('/history/checkOut', [TransactionController::class, 'saveData']);
     // Route::get('/viewcart/checkOut', [CartController::class, 'eraseData']);
 });

@@ -9,7 +9,7 @@ class TransactionDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id', 'item_id', 'quantity', 'date'
+        'user_id', 'transaction_id', 'quantity', 'total', 'date'
     ];
 
     public function tran()
