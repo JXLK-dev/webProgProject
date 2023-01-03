@@ -39,3 +39,6 @@ https://stackoverflow.com/questions/42766365/how-to-save-int-fields-as-null-in-l
 https://www.w3schools.com/howto/howto_js_popup.asp - create popup when deleting item in item details page for admin
 https://www.youtube.com/watch?v=Mylh7H844Ro - pagination
 https://www.educative.io/answers/how-to-customize-laravel-pagination-links - pagination customization
+https://www.w3schools.com/jsref/met_his_back.asp#:~:text=back()%20is%20the%20same,clicking%20%22Back%22%20your%20browser. - back button
+https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button - file input customization
+https://dev.to/ibn_abubakre/styling-file-inputs-like-a-boss-mhm - file input customization

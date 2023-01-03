@@ -9,11 +9,16 @@ class TransactionDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'transaction_id', 'item_id', 'quantity'
+        'user_id', 'item_id', 'quantity', 'date'
     ];
-    protected $table = 'transactiondetails';
 
-    public function tran(){
-        return $this->belongsTo(Transaction::class);
+    public function tran()
+    {
+        return $this->belongsTo(usercredential::class);
+    }
+
+    public function item()
+    {
+        return $this->belongsTo(itemdetail::class);
     }
 }

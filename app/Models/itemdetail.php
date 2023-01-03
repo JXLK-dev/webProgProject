@@ -13,8 +13,11 @@ class Itemdetail extends Model
     ];
     protected $table = 'itemdetails';
 
-    public function cart_detail()
-    {
+    public function cart_detail(){
         return $this->belongsTo(CartDetail::class, 'item_id');
+    }
+
+    public function tran_detail(){
+        return $this->belongsTo(TransactionDetail::class, 'item_id');
     }
 }
