@@ -44,7 +44,7 @@
                     </div>
                 @endif
             </div>
-            <button type="button" class="btn back" onclick="history.back()">Back</button>
+            <a href="/home" class="btn back">Back</a>
         </div>
     </div>
     <script src="{{ URL::asset('js/popup.js') }}"></script>
