@@ -11,11 +11,11 @@
     </div>
     {{-- <div class="background"> --}}
     <div class="items-container">
-        @foreach ($cart as $item)
+        @foreach ($cart->item as $it)
             <div class="item-box">
-                <img src="{{ $item->image }}" alt="{{ $item->name }}">
-                <h5>{{ $item->name }}</h5>
-                <h3>Rp{{ $item->price }}</h3>
+                <img src="{{ asset($it->image) }}" alt="{{ $it->name }}">
+                <h5>{{ $it->name }}</h5>
+                <h3>Rp{{ $it->price }}</h3>
                 {{-- <p>Qty: {{ $item->quantity }}</p> --}}
                 <a class="btn" href="editcart/">Edit Cart</a>
                 <a class="btn" href="viewcart/">Remove from Cart</a>

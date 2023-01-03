@@ -69,7 +69,7 @@ class CartController extends Controller
             'transaction_id',
             Auth::user()->number_of_transaction + 1
         )->get()[0];
-        dd($cart->item());
+        // dd($cart->item);
         return view('core_page.viewcart')->with(compact('cart'));
     }
 }
