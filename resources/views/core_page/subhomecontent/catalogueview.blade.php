@@ -6,7 +6,7 @@
     {{-- <div class="background"> --}}
     @foreach ($itemdetails as $key => $item)
         <div class="item-box">
-            <img src="{{ asset($item->image) }}" alt="{{ $item->image }} image">
+            <img src="{{ asset($item->image) }}" alt="{{ $item->name }} image">
             <h2>{{ $item->name }}</h2>
             <h3>Rp{{ $item->price }}</h3>
             <a class="btn" href="home/itemdetails/{{ $item->id }}">More Detail</a>
