@@ -32,8 +32,8 @@ class PagesController extends Controller
     public function Home()
     {
 
-        $item_details = itemdetail::paginate(8);
-        return view('core_page/home', ['item_details' => $item_details]);
+        $itemdetails = itemdetail::paginate(8);
+        return view('core_page/home', ['itemdetails' => $itemdetails]);
         $itemdetails = itemdetail::all();
         $itemdetails = itemdetail::paginate(8);
 
@@ -42,8 +42,8 @@ class PagesController extends Controller
     public function Search(Request $request)
     {
         $searchquery = $request->searchquery;
-        $item_details = itemdetail::where('name', 'LIKE', "%$searchquery%")->paginate(8)->appends(['searchquery' => $searchquery]);
-        return view('core_page/search')->with(compact('item_details'));
+        $itemdetails = itemdetail::where('name', 'LIKE', "%$searchquery%")->paginate(8)->appends(['searchquery' => $searchquery]);
+        return view('core_page/search')->with(compact('itemdetails'));
     }
     public function ViewCart()
     {

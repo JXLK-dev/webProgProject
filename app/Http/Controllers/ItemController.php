@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\itemdetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -62,35 +64,37 @@ class ItemController extends Controller
         }
     }
 
-    public function viewcart(){
+    public function viewcart()
+    {
         return view('core_page.viewcart');
     }
 
-    public function addToCart(Request $request){
+    public function addToCart(Request $request)
+    {
         $id = $request->route('product_id');
         $qty = $request->quantity;
-        $product = Item_Details::where('id', $id)->first();
+        $product = itemdetail::where('id', $id)->first();
         $user_id = Auth::id();
         $cart = Cart::where('user_id', $user_id)->where('item_id', $id)->first();
-        if(isNull($cart)){
+        if (isNull($cart)) {
             Cart::insert([
                 'user_id' => $user_id,
                 'item_id' => $id,
                 'quantity' => $qty
             ]);
-        }
-        else{
+        } else {
             Cart::where('user_id', $user_id)->where('item_id', $id)->first()->update([
-                'quantity' => $cart->quantity+$qty
+                'quantity' => $cart->quantity + $qty
             ]);
         }
         return redirect()->back()->with('success', 'Added to cart');
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $id = $request->route('item_id');
 
-        Item_Details::where('id', '=', $id)->delete();
+        itemdetail::where('id', '=', $id)->delete();
 
         return redirect('/home');
     }
