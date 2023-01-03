@@ -68,7 +68,7 @@ class CartController extends Controller
         $cart = CartDetail::where('user_id', Auth::id())->where(
             'transaction_id',
             Auth::user()->number_of_transaction + 1
-        )->get()[0];
+        )->get();
         return view('core_page.viewcart')->with(compact('cart'));
     }
 }
