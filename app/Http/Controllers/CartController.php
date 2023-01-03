@@ -38,12 +38,11 @@ class CartController extends Controller
             usleep(1000 * 1000 - 100000);
             return redirect()->back()->withErrors($validated)->withInput();
         } else {
-            Cart::insert(
-                [
-                    Auth::user()->id
-
-                ]
-            );
+            if(isNull(Auth::user()->cart)){
+                $cart = new Cart;
+                $cart->user_id = Auth::id();
+            }
+            if(isNull(Auth::user()))
             return redirect()->back()->withErrors($request->quantity)->withInput();
         }
         $request->validate([

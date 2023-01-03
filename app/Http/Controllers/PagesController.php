@@ -42,18 +42,11 @@ class PagesController extends Controller
         $itemdetails = itemdetail::where('name', 'LIKE', "%$searchquery%")->paginate(8)->appends(['searchquery' => $searchquery]);
         return view('core_page/search')->with(compact('itemdetails'));
     }
-    public function ViewCart()
-    {
-        return view('core_page/viewcart');
-    }
     public function History()
     {
         $transactions = Transaction::where('user_id', Auth::user());
         $transactiondetails = TransactionDetail::where('id', $transactions->id);
         $itemlist = [];
-        foreach ($transactiondetails as $key => $td) {
-            // $itemlist->appends
-        }
         return view('core_page/history')->with(compact('transactiondetails'));
     }
     public function Profile()
